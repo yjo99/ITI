@@ -1,0 +1,257 @@
+#include <iostream.h>
+#include <conio.h>
+
+
+
+
+/////// stack example
+template <class T>
+class Stack{
+
+	int top;
+	int size;
+	T *ptr;
+	static int counter;
+
+
+	public:
+		Stack();     // default constructor
+		Stack(int n); // parametraized constructor
+		Stack(Stack<T> &s); // copy constructro
+		int push(T n);
+		T pop( T &n );
+		int isFull();
+		int isEmpty();
+
+		static int getCounter(); /////// static mehtod
+		friend void viewContent(Stack &s);
+		~Stack(); //destructor
+
+		/// operator overloading =
+		Stack<T> & operator = (Stack<T> & s);
+		void operator [] (int idx);
+
+};
+
+template <class T>
+Stack<T>::Stack(){
+	top =0;
+	size = 10;
+	ptr = new T[size];
+
+
+	counter++;
+
+	cout<< "this is defalut Constructor "<< endl;
+
+}
+template <class T>
+
+Stack<T>::Stack(int n){
+
+	top = 0;
+	size = n;
+	ptr = new T[size];
+
+
+	counter++;
+
+	cout << "this is parametirzed Constructor" << endl;
+
+
+
+}
+
+
+template <class T>
+Stack<T>::~Stack(){
+
+	delete[] ptr;
+	size=0;
+
+	counter--;
+
+	cout << "this is destructor ";
+
+}
+
+//copy constructro
+template <class T>
+Stack<T>::Stack(Stack<T> &s){
+	int i;
+	top = s.top;
+	size = s.size;
+	ptr = new T[size];
+
+	for(i=0; i<top; i++){
+		ptr[i] = s.ptr[i];
+	}
+	counter++;
+
+
+}
+
+template <class T>
+int Stack<T>::isFull(){
+	return ((top) == size);
+
+}
+template <class T>
+int Stack<T>::isEmpty(){
+
+	return ((top) == 0);
+
+}
+template <class T>
+int Stack<T>::push(T n){
+
+	if(isFull()) return 0;
+
+	ptr[top] = n;
+	top++;
+	return 1;
+
+}
+
+template <class T>
+T Stack<T>::pop(T &num){
+
+	if(isEmpty()) return 0;
+
+
+	top--;
+	num = ptr[top];
+
+	return 1;
+
+
+}
+
+// static var, and static method
+template <class T>
+int Stack<T>::counter =0;
+
+template <class T>
+int Stack<T>::getCounter(){
+	return counter;
+
+}
+// operator overloading
+
+
+template <class T>
+Stack<T> & Stack<T>::operator = (Stack<T> &s){
+		top = s.top;
+		size = s.size;
+		int i;
+		for(i=0; i<top; i++){
+			ptr[i] = s.ptr[i];
+
+		}
+
+		return *this;
+
+}
+template <class T>
+void  Stack<T>::operator [] (int idx){
+	if(idx > top) cout << "this number out of array" << endl;
+	else cout << "the value is : " << ptr[idx] << endl;
+
+}
+
+
+
+
+// friend function
+template <class T>
+
+void viewContent(Stack<T> &s);
+
+
+
+
+
+
+int main(){
+
+	clrscr();
+
+	int num;
+	Stack<int> s1(2);
+	Stack<int> s3(3);
+	s1.push(5);
+	s1.push(15);
+	s1.push(20);
+
+
+	viewContent(s1);
+
+	//if(s1.pop(num)){ cout << num << endl;}
+   //	if(s1.pop(num)){ cout << num << endl;  }
+
+
+	//if(s1.pop(num)){
+	// cout << num << endl;
+	// }else{ cout << "stack is empty" << endl;}
+
+	 //cout << "the number of Object is :- " ;
+	//cout <<s1.getCounter() <<endl;
+
+
+	// q) when using copy cons is not counter?
+
+   //	Stack s2(s1);
+   //	cout << "the number of Object is :- " ;
+   //	cout <<s2.getCounter() <<endl;
+
+
+	s3 = s1;
+
+	cout << "first object" << endl;
+	viewContent(s1);
+
+	cout << "sec object" << endl;
+	viewContent(s3);
+
+	s3[1];
+	s3[4];
+
+	 int n;
+
+	Stack<char> s4;
+	char nc;
+	cout <<"\nNo of Char Stacks is: "<<Stack<char>::getCounter();
+	s4.push('q');
+	s4.push('r');
+	s4.push('s');
+	cout << endl;
+	viewContent(s4) ;
+	s4.pop(nc);
+	cout << "\n1st character: " <<nc;
+	s4.pop(nc);
+	cout << "\n2nd character: " <<nc;
+
+
+	getch();
+
+	return 0;
+
+}
+
+
+
+
+
+template <class T>
+void viewContent(Stack<T> &s){
+
+	int i;
+
+	for(i= 0; i<s.top; i++){
+
+		cout << "Element No " << (i+1) << " is:- " << s.ptr[i] << endl;
+
+	}
+
+
+}

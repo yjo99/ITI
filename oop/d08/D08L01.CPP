@@ -1,0 +1,248 @@
+#include <iostream.h>
+#include <conio.h>
+
+
+class Point{
+	private:
+		int x;
+		int y;
+	public:
+		Point();
+		Point(int x);
+		Point(int x, int y);
+		~Point();
+
+		void setX(int m);
+		void setY(int n);
+		void setXY(int m, int n);
+		int getX();
+		int getY();
+		void print();
+
+};
+
+//pointer class
+// scope function
+Point::Point(){
+	x = y = 0 ;
+	cout << "this is default constructor Point" << endl;
+
+}
+Point::Point(int m){
+	x = y = m ;
+	cout << "this is one parameter constructor point" << endl;
+
+}
+Point::Point(int m, int n){
+	x = m ;
+	y = n ;
+	cout << "this is two parameter constructor Point" << endl;
+
+}
+Point::~Point(){
+
+	cout << "this is destructor" << endl;
+
+}
+
+
+//// point encapsulation
+void Point::setX(int m){
+
+	x = m;
+
+}
+void Point::setY(int n){
+
+	y = n;
+
+}
+void Point::setXY(int m,int n){
+
+	x = m;
+	y = n;
+
+}
+
+int Point::getX(){
+
+	return x;
+}
+
+int Point::getY(){
+
+	return y;
+}
+void Point::print(){
+
+	cout<< "\n point data x= " << x << ",  y= " << y << endl;
+
+}
+
+
+
+
+
+
+
+
+
+/////////////////
+class Line{
+
+	private:
+		Point start;
+		Point end;
+
+
+	public:
+
+		Line(): start(), end(){
+
+			cout << "line default constructro " << endl;
+
+		}
+		Line(int x1, int y1, int x2, int y2) : start(x1, y1), end( x2, y2){
+
+			cout << "line default constructro " << endl;
+
+		}
+
+		~Line(){ cout<< "Line destructor" << endl;}
+		void print(){
+			cout<< "start: ";
+			start.print();
+
+			cout<< "end: ";
+			end.print();
+
+
+		}
+
+
+};
+
+
+//////////////////////////////
+///// scope
+
+
+
+//////////////////////////////////
+/// Circle
+
+class Circle{
+
+	private:
+		Point center;
+		int rad;
+
+
+	public:
+
+		Circle() : center(), rad(0){
+
+		   cout<< "Circle default constructor" <<endl;
+
+		}
+
+		Circle(int x1, int y1, int r) : center(x1, y1), rad(r){
+
+			cout << "Circle constructor  with 3 parameter" << endl;
+		}
+
+		~Circle(){
+
+			cout<< "Circle Destructor" <<endl;
+
+		}
+		void Circle::print(){
+
+			cout << "center" ; center.print();
+			cout << "radius = " << rad << endl;
+
+		}
+
+
+};
+
+
+
+
+///////////////////////////////////
+///// rect
+
+class Rect{
+
+	private:
+		Point UL;
+		Point LR;
+
+	public:
+		Rect(): UL(), LR(){
+
+			cout << "rect default constructor" << endl;
+		}
+
+		Rect(int x1, int y1, int x2, int y2): UL( x1,  y1), LR( x2,  y2){
+
+			cout << "rect constructor with 4 parameter" << endl;
+
+		}
+		~Rect(){
+
+			cout << "rect destructor" << endl;
+		}
+
+		void Rect::print(){
+
+			cout << "Upper left" ; UL.print();
+			cout << "lower right"; LR.print();
+
+		}
+
+
+
+
+
+
+};
+
+////////////////////////
+//// scope
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main(){
+
+	clrscr();
+
+
+	Circle c1(250, 150, 100);
+	Rect r1(10,100,90,350);
+	Line l1(30,100,350,400);
+
+
+	c1.print();
+	r1.print();
+	l1.print();
+
+
+
+
+	getch();
+	return 0;
+
+
+}

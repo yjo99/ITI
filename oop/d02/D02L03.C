@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <conio.h>
+//#include <windows.h>
+
+
+
+void main(void){
+
+ //%%
+ //lab 3 (menu with 3 choices).
+ int n, lo=1;
+
+
+ clrscr();
+ gotoxy(25,6);
+ printf("1- HomePage \n");
+ gotoxy(25,7);
+ printf("2- login page \n");
+ gotoxy(25,8);
+ printf("3- signup \n");
+
+ while(lo){
+ gotoxy(25,9);
+ printf("Please Enter the number: ");
+ scanf("%d", &n);
+
+ gotoxy(25,10);
+
+ if(n==1){ printf("You are in HomePage.\n");}
+ else if(n==2){ printf("you are in login page.\n");}
+ else if (n==3) {printf("you are in signup.\n");}
+ else{ printf("You are going Out of the range.\n"); lo = 0;}
+
+
+ }
+
+
+
+
+
+
+ getch();
+
+}

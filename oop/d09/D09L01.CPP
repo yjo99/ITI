@@ -1,0 +1,100 @@
+#include <iostream.h>
+#include <conio.h>
+
+
+////
+class Base{
+
+	protected:
+		int a;
+		int b;
+
+	public:
+		Base(){ a = b = 0;}
+		Base(int n){ a = b = n;}
+		Base(int n, int m){ a = n; b = m;}
+
+		void setA(int n){ a=n;}
+		void setB(int m){ b=m;}
+
+		int getA(){ return a;}
+		int getB(){ return b;}
+
+
+
+		//will be override
+		int calculateSum(){ return a+b;}
+
+
+
+};
+
+class Derived : public Base{
+	private:
+		int c;
+	public:
+		Derived() : Base() {
+			c = 0;}
+		Derived(int a, int b, int c) : Base(a,b){
+			this -> c = c;
+			}
+		Derived(int n) : Base(n){
+			c = n;
+			}
+		void setC(int c){
+			this -> c = c;
+
+		}
+		int getC(){
+			return c;
+		}
+
+		// static overriding
+
+		int calculateSum(){
+			return Base::calculateSum() + c;
+
+		}
+
+};
+
+
+
+
+
+
+
+
+
+int main(){
+
+	clrscr();
+
+	Base b(5,4);
+	cout << b.calculateSum() << endl;
+
+	Derived obj1 , obj2(20), obj3(4,5,6);
+	obj1.setA(3);
+	obj1.setB(7);
+	obj1.setC(1);
+
+
+
+	cout << "obj1: " << obj1.calculateSum() << endl;
+	cout << "obj2: " << obj2.calculateSum() << endl;
+	cout << "obj3: " << obj3.calculateSum() << endl;
+
+	cout << "obj1:  to call parent function (static)" << obj1.Base::calculateSum() << endl;
+
+
+
+	getch();
+
+	return 0;
+
+}
+
+
+
+
+

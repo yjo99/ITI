@@ -1,0 +1,63 @@
+	#include <stdio.h>
+#include <conio.h>
+
+
+
+
+void main(void){
+
+ //%%
+ //lab 1 (box magic)
+
+ int row, col,val;
+ int n;
+
+ clrscr();
+
+
+
+
+ printf("Enter ood Number: ");
+
+
+
+ scanf("%d",&n);
+
+ row = 1;
+ col = (n + 1) / 2;
+ val = 1;
+
+
+
+do {
+
+
+	gotoxy(col*3, row*3);
+	printf("%d", val);
+
+
+
+ if ((val % n) ==0){
+	row ++;
+
+ }else {
+	row --;
+	col --;
+	if(row==0){ row = n; }
+	if(col==0){ col = n; }
+
+ }
+
+ val++;
+
+ }while(val <= n*n);
+
+
+
+
+
+
+
+ getch();
+
+}

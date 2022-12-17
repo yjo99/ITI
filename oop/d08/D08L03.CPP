@@ -1,0 +1,314 @@
+#include <iostream.h>
+#include <conio.h>
+
+
+class Point{
+	private:
+		int x;
+		int y;
+	public:
+		Point();
+		Point(int x);
+		Point(int x, int y);
+		~Point();
+
+		void setX(int m);
+		void setY(int n);
+		void setXY(int m, int n);
+		int getX();
+		int getY();
+		void print();
+
+};
+
+//pointer class
+// scope function
+Point::Point(){
+	x = y = 0 ;
+	cout << "this is default constructor Point" << endl;
+
+}
+Point::Point(int m){
+	x = y = m ;
+	cout << "this is one parameter constructor point" << endl;
+
+}
+Point::Point(int m, int n){
+	x = m ;
+	y = n ;
+	cout << "this is two parameter constructor Point" << endl;
+
+}
+Point::~Point(){
+
+	cout << "this is destructor" << endl;
+
+}
+
+
+//// point encapsulation
+void Point::setX(int m){
+
+	x = m;
+
+}
+void Point::setY(int n){
+
+	y = n;
+
+}
+void Point::setXY(int m,int n){
+
+	x = m;
+	y = n;
+
+}
+
+int Point::getX(){
+
+	return x;
+}
+
+int Point::getY(){
+
+	return y;
+}
+void Point::print(){
+
+	cout<< "\n point data x= " << x << ",  y= " << y << endl;
+
+}
+
+
+
+
+
+
+
+
+
+/////////////////
+class Line{
+
+	private:
+		Point start;
+		Point end;
+
+
+	public:
+
+		Line(): start(), end(){
+
+			cout << "line default constructro " << endl;
+
+		}
+		Line(int x1, int y1, int x2, int y2) : start(x1, y1), end( x2, y2){
+
+			cout << "line default constructro " << endl;
+
+		}
+
+		~Line(){ cout<< "Line destructor" << endl;}
+		void print(){
+			cout<< "start: ";
+			start.print();
+
+			cout<< "end: ";
+			end.print();
+
+
+		}
+
+
+};
+
+
+//////////////////////////////
+///// scope
+
+
+
+//////////////////////////////////
+/// Circle
+
+class Circle{
+
+	private:
+		Point center;
+		int rad;
+
+
+	public:
+
+		Circle() : center(), rad(0){
+
+		   cout<< "Circle default constructor" <<endl;
+
+		}
+
+		Circle(int x1, int y1, int r) : center(x1, y1), rad(r){
+
+			cout << "Circle constructor  with 3 parameter" << endl;
+		}
+
+		~Circle(){
+
+			cout<< "Circle Destructor" <<endl;
+
+		}
+		void Circle::print(){
+
+			cout << "center" ; center.print();
+			cout << "radius = " << rad << endl;
+
+		}
+
+
+};
+
+
+
+
+///////////////////////////////////
+///// rect
+
+class Rect{
+
+	private:
+		Point UL;
+		Point LR;
+
+	public:
+		Rect(): UL(), LR(){
+
+			cout << "rect default constructor" << endl;
+		}
+
+		Rect(int x1, int y1, int x2, int y2): UL( x1,  y1), LR( x2,  y2){
+
+			cout << "rect constructor with 4 parameter" << endl;
+
+		}
+		~Rect(){
+
+			cout << "rect destructor" << endl;
+		}
+
+		void Rect::print(){
+
+			cout << "Upper left" ; UL.print();
+			cout << "lower right"; LR.print();
+
+		}
+
+
+
+
+
+
+};
+
+////////////////////////
+class Picture
+{
+	private:
+		int cNum ;
+		int rNum ;
+		int lNum ;
+		Circle *pCircles;
+		Rect *pRects;
+		Line *pLines;
+	public :
+		Picture()
+			{
+			cNum=0;
+			rNum=0;
+			lNum=0;
+			pCircles = NULL ;
+			pRects = NULL ;
+			pLines = NULL ;
+		}
+		Picture(int cn, int rn, int ln, Circle *pC, Rect *pR, Line *pL){
+			cNum = cn;
+			rNum = rn;
+			lNum = ln;
+			pCircles = pC ;
+			pRects = pR ;
+			pLines = pL ;
+			}
+		void setCircles(int, Circle *);
+		void setRects(int, Rect *);
+		void setLines(int, Line *);
+		void print();
+
+};
+
+
+///////scope
+void Picture::setCircles(int cn, Circle * cptr){
+		cNum = cn ;
+		pCircles = cptr ;
+}
+void Picture::setRects(int rn, Rect * rptr){
+		rNum = rn ;
+		pRects = rptr ;
+}
+void Picture::setLines(int ln, Line * lptr){
+		lNum = ln ;
+		pLines = lptr ;
+}
+
+
+void Picture::print(){
+	int i;
+	for(i=0; i<cNum ; i++){
+		pCircles[i].print();
+	}
+	for(i=0 ; i<rNum ; i++){
+		pRects[i].print();
+	}
+	for(i=0 ; i<lNum; i++){
+		pLines[i].print();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+int main(){
+
+	Picture myPic;
+
+	Circle cArr[3]={Circle(50,50,50), Circle(200,100,100),
+
+	Circle(420,50,30)};
+
+	Rect rArr[2]={Rect(30,40,170,100), Rect(420,50,500,300)};
+
+	Line lArr[2]={Line(420,50,300,300), Line(40,500,500,400)};
+
+	myPic.setCircles(3,cArr) ;
+
+	myPic.setRects(2,rArr) ;
+
+	myPic.setLines(2,lArr) ;
+
+	myPic.print() ;
+
+
+
+
+	getch();
+
+
+	return 0;
+
+}

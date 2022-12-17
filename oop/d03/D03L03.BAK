@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <conio.h>
+
+
+
+
+struct employee{
+	int code;
+	char name[100];
+	double netSalary;
+
+};
+
+
+struct employee readStr();
+void printStr( struct employee emp1);
+
+
+
+
+
+
+int main(){
+
+struct employee emp1;
+
+clrscr();
+
+emp1 = readStr();
+
+
+printStr(emp1);
+
+
+
+getch();
+
+
+	return 0;
+
+
+}
+
+
+
+
+struct employee readStr(){
+
+	struct employee emp1;
+
+	printf("Enter emp code: ");
+	scanf("%d", &emp1.code);
+	printf("%d", emp1.code);
+
+
+	printf("Enter emp name: ");
+	scanf("%s", &emp1.name);
+	printf("%s", emp1.name);
+
+	printf("Enter his net Salary: ");
+	scanf("%lf", &emp1.netSalary);
+	printf("%lf", emp1.netSalary);
+
+	return emp1;
+
+
+}
+void printStr( struct employee emp1){
+
+	printf("employee { code: %d, name: %s, net Salary: %lf }", emp1.code,emp1.name,emp1.netSalary);
+
+
+}

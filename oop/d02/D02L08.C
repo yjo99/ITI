@@ -1,0 +1,84 @@
+
+#include <stdio.h>
+#include <conio.h>
+
+
+void main(void){
+
+
+ int arr[3][4];
+ int i, j,sum=0;
+ int avg =0,total=0;
+
+
+
+ clrscr();
+
+
+ /////input
+
+ for(i=0; i < 3; i++){
+
+	 for (j=0; j<4; j++) {
+
+		printf("Enter the value of arr[%d][%d] = ",i,j);
+		scanf("%d", &arr[i][j]);
+
+
+	 }
+
+
+ }
+////////sum and print
+
+ for(i=0; i <3; i++){
+
+	for (j=0; j<4; j++) {
+
+
+		printf("%3d",arr[i][j]);
+
+		sum += arr[i][j];
+
+
+	 }
+	 printf(" = %3d", sum);
+	 printf("\n");
+	 sum = 0;
+
+
+ }
+  printf("\n");
+
+  for(i=0; i <4; i++){
+
+
+	printf("---");
+
+ }
+ printf("\n");
+
+
+
+ //////////////average
+
+  for(i=0; i <4; i++){
+
+
+	for (j=0; j<3; j++) {
+
+		total += arr[j][i];
+
+
+	 }
+	 avg = total/3;
+	 printf("%3d",avg);
+	 avg =0;
+	 total = 0;
+
+ }
+
+
+ getch();
+
+}

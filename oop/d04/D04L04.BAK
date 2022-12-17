@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+struct employee{
+	int code;
+	char name[100];
+	double netSalary;
+
+};
+
+
+void readstruct(struct employee *ptr, int size);
+
+
+
+
+int main(){
+
+	struct employee *ptr1;
+	int size,i;
+
+	clrscr();
+
+	printf("please enter size of you structure pointer size");
+	scanf("%d", &size);
+	flushall();
+
+	ptr1 = (struct employee *) malloc( size * sizeof(struct employee));
+
+
+
+
+
+
+
+
+	readstruct(ptr1, size);
+
+
+
+
+
+
+	free(ptr1);
+	getch();
+
+	return 0;
+
+}
+
+
+void readstruct(struct employee *ptr,int size){
+
+   int i;
+
+
+   for(i=0; i<size; i++){
+
+	printf("Enter emp code: ");
+	scanf("%d", &ptr[i].code);
+	flushall();
+
+
+	printf("Enter emp name: ");
+	scanf("%s", &ptr[i].name);
+	flushall();
+
+	printf("Enter his net Salary: ");
+	scanf("%lf", &ptr[i].netSalary);
+	flushall();
+
+	}
+
+
+
+
+
+
+
+}
