@@ -1,0 +1,63 @@
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Gov.ITI.Jets</groupId>
+  <artifactId>proj1</artifactId>
+
+  <version>1.0-SNAPSHOT</version>
+
+
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+
+<!--<build>-->
+
+
+
+<!--    <plugins>-->
+
+
+<!--      &lt;!&ndash;      it just to install java version by maven compiler plugin&ndash;&gt;-->
+<!--      <plugin>-->
+<!--        <artifactId>maven-compiler-plugin</artifactId>-->
+<!--        <version>3.10.1</version>-->
+<!--        <configuration>-->
+<!--          <release>17</release>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+
+      <!--      exec-maven plugin , to execute main class by exec:java -> (plugin:goal)-->
+
+<!--      <plugin>-->
+<!--        <groupId>org.codehaus.mojo</groupId>-->
+<!--        <artifactId>exec-maven-plugin</artifactId>-->
+<!--        <version>3.1.0</version>-->
+<!--        <configuration>-->
+<!--          <mainClass>Jets.App</mainClass>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
+
+<!--</build>-->
+
+</project>
