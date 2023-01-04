@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="iti.jets.AppTest" time="0.007" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="iti.jdb.AppTest" time="0.006" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.5+9-LTS-191"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.5\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\ITI\labs\maven\mvproj1\helloProj"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\ITI\labs\jdbc\jdbcProgram"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\ITI\labs\maven\mvproj1\helloProj"/>
+    <property name="user.dir" value="E:\ITI\labs\jdbc\jdbcProgram"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="17.0.5+9-LTS-191"/>
     <property name="os.arch" value="amd64"/>
@@ -43,7 +43,7 @@
     <property name="java.class.path" value="C:\DevTools\Maven\apache-maven-3.8.6\boot\plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher deploy"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-17.0.5"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -61,5 +61,5 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="iti.jets.AppTest" name="testApp" time="0.007"/>
+  <testcase classname="iti.jdb.AppTest" name="testApp" time="0.006"/>
 </testsuite>
