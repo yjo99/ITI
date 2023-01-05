@@ -4,36 +4,48 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
-@Table(name="actor")
+@Table(name="account")
 public class entActor {
     @Id
-    @Column(name="actor_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
 
-    @Column(name="first_name")
-    private String fName;
-    @Column(name="last_name")
-    private String lName;
-    @Column(name="last_update")
-    private Date lUpdate;
+    @Column(name="user_name")
+    private String user_name;
+    @Column(name="address")
+    private String address;
+    @Column(name="phone")
+    private String phone;
+
+    @Column(name="birthday")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date birthday;
+
+    @Column(name="full_name")
+    private String full_name;
+
+    @Column(name="password")
+    private String password;
 
     public entActor(){
 
     }
-    public entActor(int id, String fName,String lName, Date lUpdate){
-        this.id = id;
-        this.fName = fName;
-        this.lName = lName;
-        this.lUpdate = lUpdate;
+    public entActor( int id ,String user_name,String address, String phone, Date birthday, String full_name, String password){
+//        this.id = id;
+        this.user_name = user_name;
+        this.address = address;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.full_name = full_name;
+        this.password = password;
     }
-    public int getId(){
-        return this.id;
+
+    public String getUser_name(){
+        return this.user_name;
     }
-    public String getfName(){
-        return this.fName;
-    }
-    public String getlName(){
-        return this.lName;
+    public void setUser_name(String user_name){
+        this.user_name = user_name;
     }
 
 }
