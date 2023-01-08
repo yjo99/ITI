@@ -56,7 +56,7 @@ public class Product  implements java.io.Serializable {
         this.offeredDate = offeredDate;
         this.finishDate = finishDate;
     }
-    public Product(Seller seller, String name, String description, String manufacturingName, Date manufacturingDate, Date expirationDate, int quantity, Date offeredDate, Date finishDate, Set<Category> categories, Set<BuyerBidProduct> buyerBidProducts, Set<BuyerBuyProduct> buyerBuyProducts) {
+    public Product(Seller seller, String name, String description, String manufacturingName, Date manufacturingDate, Date expirationDate, int quantity, Date offeredDate, Date finishDate, Set<Category> categories) {
        this.seller = seller;
        this.name = name;
        this.description = description;
@@ -67,10 +67,22 @@ public class Product  implements java.io.Serializable {
        this.offeredDate = offeredDate;
        this.finishDate = finishDate;
        this.categories = categories;
-       this.buyerBidProducts = buyerBidProducts;
-       this.buyerBuyProducts = buyerBuyProducts;
+
     }
-   
+    public Product(Seller seller, String name, String description, String manufacturingName, Date manufacturingDate, Date expirationDate, int quantity, Date offeredDate, Date finishDate, Set<Category> categories, Set<BuyerBidProduct> buyerBidProducts, Set<BuyerBuyProduct> buyerBuyProducts) {
+        this.seller = seller;
+        this.name = name;
+        this.description = description;
+        this.manufacturingName = manufacturingName;
+        this.manufacturingDate = manufacturingDate;
+        this.expirationDate = expirationDate;
+        this.quantity = quantity;
+        this.offeredDate = offeredDate;
+        this.finishDate = finishDate;
+        this.categories = categories;
+        this.buyerBidProducts = buyerBidProducts;
+        this.buyerBuyProducts = buyerBuyProducts;
+    }
      @Id @GeneratedValue(strategy=IDENTITY)
 
     

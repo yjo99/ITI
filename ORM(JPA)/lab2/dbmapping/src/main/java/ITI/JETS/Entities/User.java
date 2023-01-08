@@ -51,7 +51,7 @@ public class User  implements java.io.Serializable {
         this.userName = userName;
         this.password = password;
     }
-    public User(String email, String address, String phone, String mobile, Date dateOfBirth, Date registrationDate, String userName, String password, String fullName, Set<Buyer> buyers, Seller seller) {
+    public User(String email, String address, String phone, String mobile, Date dateOfBirth, Date registrationDate, String userName, String password, String fullName) {
        this.email = email;
        this.address = address;
        this.phone = phone;
@@ -61,8 +61,7 @@ public class User  implements java.io.Serializable {
        this.userName = userName;
        this.password = password;
        this.fullName = fullName;
-       this.buyers = buyers;
-       this.seller = seller;
+
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
