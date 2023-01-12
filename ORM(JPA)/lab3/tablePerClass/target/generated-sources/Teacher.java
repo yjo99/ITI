@@ -1,5 +1,5 @@
 // default package
-// Generated Jan 10, 2023, 6:18:55 PM by Hibernate Tools 6.0.0.Alpha3
+// Generated Jan 12, 2023, 9:42:42 AM by Hibernate Tools 6.0.0.Alpha3
 
 
 import java.util.Date;
@@ -22,17 +22,17 @@ public class Teacher  implements java.io.Serializable {
 
      private int id;
      private String firstName;
-     private Date hireDate;
      private String lastName;
+     private Date hireDate;
 
     public Teacher() {
     }
 
-    public Teacher(int id, String firstName, Date hireDate, String lastName) {
+    public Teacher(int id, String firstName, String lastName, Date hireDate) {
        this.id = id;
        this.firstName = firstName;
-       this.hireDate = hireDate;
        this.lastName = lastName;
+       this.hireDate = hireDate;
     }
    
      @Id 
@@ -57,16 +57,6 @@ public class Teacher  implements java.io.Serializable {
         this.firstName = firstName;
     }
 
-    @Temporal(TemporalType.DATE)
-    @Column(name="hire_date", nullable=false, length=10)
-    public Date getHireDate() {
-        return this.hireDate;
-    }
-    
-    public void setHireDate(Date hireDate) {
-        this.hireDate = hireDate;
-    }
-
     
     @Column(name="last_name", nullable=false, length=50)
     public String getLastName() {
@@ -75,6 +65,16 @@ public class Teacher  implements java.io.Serializable {
     
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="hire_date", nullable=false, length=10)
+    public Date getHireDate() {
+        return this.hireDate;
+    }
+    
+    public void setHireDate(Date hireDate) {
+        this.hireDate = hireDate;
     }
 
 

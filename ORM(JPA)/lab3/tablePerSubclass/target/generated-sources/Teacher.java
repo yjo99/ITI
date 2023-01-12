@@ -1,5 +1,5 @@
 // default package
-// Generated Jan 11, 2023, 1:32:50 PM by Hibernate Tools 6.0.0.Alpha3
+// Generated Jan 12, 2023, 9:44:36 AM by Hibernate Tools 6.0.0.Alpha3
 
 
 import java.util.Date;

@@ -1,5 +1,5 @@
 // default package
-// Generated Jan 10, 2023, 6:18:55 PM by Hibernate Tools 6.0.0.Alpha3
+// Generated Jan 12, 2023, 9:42:42 AM by Hibernate Tools 6.0.0.Alpha3
 
 
 import javax.persistence.Column;
@@ -18,18 +18,18 @@ public class Student  implements java.io.Serializable {
 
 
      private int id;
-     private String department;
      private String firstName;
      private String lastName;
+     private String department;
 
     public Student() {
     }
 
-    public Student(int id, String department, String firstName, String lastName) {
+    public Student(int id, String firstName, String lastName, String department) {
        this.id = id;
-       this.department = department;
        this.firstName = firstName;
        this.lastName = lastName;
+       this.department = department;
     }
    
      @Id 
@@ -42,16 +42,6 @@ public class Student  implements java.io.Serializable {
     
     public void setId(int id) {
         this.id = id;
-    }
-
-    
-    @Column(name="department", nullable=false, length=45)
-    public String getDepartment() {
-        return this.department;
-    }
-    
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     
@@ -72,6 +62,16 @@ public class Student  implements java.io.Serializable {
     
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    
+    @Column(name="department", nullable=false, length=45)
+    public String getDepartment() {
+        return this.department;
+    }
+    
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
 

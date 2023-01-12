@@ -1,5 +1,5 @@
 // default package
-// Generated Jan 10, 2023, 6:18:55 PM by Hibernate Tools 6.0.0.Alpha3
+// Generated Jan 12, 2023, 9:42:42 AM by Hibernate Tools 6.0.0.Alpha3
 
 
 import javax.persistence.Column;

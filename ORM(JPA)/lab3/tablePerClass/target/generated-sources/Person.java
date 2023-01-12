@@ -1,11 +1,9 @@
 // default package
-// Generated Jan 10, 2023, 6:18:55 PM by Hibernate Tools 6.0.0.Alpha3
+// Generated Jan 12, 2023, 9:42:42 AM by Hibernate Tools 6.0.0.Alpha3
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -19,27 +17,28 @@ import javax.persistence.Table;
 public class Person  implements java.io.Serializable {
 
 
-     private Integer id;
+     private int id;
      private String firstName;
      private String lastName;
 
     public Person() {
     }
 
-    public Person(String firstName, String lastName) {
+    public Person(int id, String firstName, String lastName) {
+       this.id = id;
        this.firstName = firstName;
        this.lastName = lastName;
     }
    
-     @Id @GeneratedValue(strategy=IDENTITY)
+     @Id 
 
     
     @Column(name="id", unique=true, nullable=false)
-    public Integer getId() {
+    public int getId() {
         return this.id;
     }
     
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
