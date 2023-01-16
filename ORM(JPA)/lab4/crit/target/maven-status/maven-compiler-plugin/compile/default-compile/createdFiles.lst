@@ -1,0 +1,10 @@
+ITI\Entites\Aircraftmodel.class
+ITI\Entites\Owner.class
+ITI\Entites\Workorder.class
+ITI\Entites\PartsWorkshop.class
+ITI\Entites\Typeofservices.class
+ITI\Entites\Workorderplace.class
+ITI\Entites\Aircrafttype.class
+ITI\Entites\Capabilitylist.class
+ITI\JETS\App.class
+ITI\Entites\Actionreq.class
