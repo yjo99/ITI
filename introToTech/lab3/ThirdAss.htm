@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+
+        <script>
+
+            var check = true;
+
+            while(check){
+                var x = window.prompt("x value");
+                var y = window.prompt(" y value ");
+                var z = window.prompt(" z value ");
+        
+                var xp =  parseInt(x);
+                var yp =  parseInt(y);
+                var zp =  parseInt(z);
+
+                var mx = Math.max(x,y,z);
+                var mn = Math.min(x,y,z);
+
+                // console.log(mx);
+                // console.log(mn);
+
+            if(isNaN(xp) || isNaN(yp) || isNaN(zp)){
+                alert(`Error`);    
+            }
+            else{
+
+                document.write(`<h1>  the maximum value is : ${mx}</h1>`);
+                document.write(`<h1>the min value is : ${mn}</h1>`);
+                var check =false;
+             }
+    }
+        </script>
+    </body>
+</html>

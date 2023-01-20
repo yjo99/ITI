@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Second Assignment</title>
+
+        <style>
+           div{
+            display: inline-block;
+           }
+           #name , select{
+            padding: 5px 10px;
+            margin: 10px;
+            width: 250px;
+           }
+           #add, #dlt{
+            margin: 10px;
+            padding: 0 30px;
+            height: 25px;
+            background-color:dodgerblue;
+            border: none;
+            color: white;
+            font-size: large;
+            font-weight: bolder;
+           }
+           #add:hover, #dlt:hover{
+            background-color: rgb(18, 96, 175);
+           }
+          
+        </style>
+    </head>
+    <body>
+
+
+        <div>
+            <label>Add your value</label>
+           <input type="name" id="name" name="name">
+        </div>
+        <div>
+            <label>Items</label>
+           <select name="slct" id="slct"> </select>
+        </div>
+        <input type="button" id="add" value="Add" name="add">
+           <input type="button" id="dlt" value="Delete" name="dlt">
+
+
+           <script src="secPage.js"></script>
+    </body>
+
+</html>

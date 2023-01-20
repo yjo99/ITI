@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+
+        <script>
+            var x = window.prompt(" add number ");
+            var shape;
+            
+            var check = true;
+            while(check){
+                switch(x){
+                    case '1':
+                        shape = "circle";
+                        var check = false;
+                        break;
+                    case '2':
+                        shape = "number";
+                        var check = false;
+                        break;
+                    case '3':
+                        shape = "upper-alpha";
+                        var check = false;
+                        break;
+
+                    default:
+                        var x = window.prompt("Enter the number");
+
+                }
+           }
+           
+           var design = `<ul style="list-style-type: ${shape};">
+             <li>test1</li><li>test2</li><li>test3</li>
+              </ul>` ;
+           document.write(design);
+        </script>
+    </body>
+</html>

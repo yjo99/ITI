@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Fist Assignment</title>
+
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .cont{
+                width: 60%;
+                margin: 0 auto;
+                background-color: #ddd;
+            }
+            header{
+                width: 100%;
+                height: 70px;
+                background-color: rgb(0, 206, 206);
+                color: white;
+            }
+            header h3{
+                text-align: center;
+                height: 100%;
+                vertical-align: center;
+                padding-top: 25px;
+            }
+            form{
+                margin: 10px 30px;
+            }
+            input{
+                height: 25px;
+            }
+            fieldset{
+                margin: 15px 0;
+                background-color: rgb(240, 240, 240);
+                box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+                /* box-shadow: 0 3px 10px rgba(255, 0, 0, 0.5); */
+                border-radius: 10px;
+            }
+            legend{
+                font-weight: bolder;
+            }
+
+            span{
+                padding: 5px 10px;
+                border-top-left-radius: 50%;
+                border-top-right-radius: 50%;
+                border-bottom-right-radius: 50%;
+                margin: 0 10px;
+                background-color: rgb(0, 206, 206);
+                color: white;
+            }
+            section{
+                margin: 15px 10px;
+            }
+            section label{
+                display: inline-block;
+                width: 30%;
+            }
+            section input{
+                width: 60%;
+            }
+            .last{
+                width: 50%;
+                margin: 0 auto;
+            }
+            
+            .sub, .res{
+                background-color: rgb(0, 206, 206);
+                width: 30%;
+                border: none;
+                height: 30px;
+                float: left;
+                margin: 10px;
+                color: white;
+                
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="cont">
+            <header>
+                <h3> Contact Us </h3>
+            </header>
+            <form name="form">
+                <fieldset>
+                    <legend><span>1</span>Account Information </legend>
+                    <section><label>UserName</label> <input type="name" id="userName" name="userName" required> </section>
+                    <section><label>Password</label> <input type="password" id="pass" name="Password" required> </section>
+                    <section><label>Confirm Password</label> <input type="password" id="confPass" name="Confirm Password" required> <p id="note"></p> </section>
+                    
+                    <section><label>Credit Card No</label> <input type="number" id="ccn" name="Credit Card No"> </section>
+                </fieldset>
+                <fieldset>
+                    <legend><span>2</span>Personal Information </legend>
+                    <section><label>Name</label> <input required type="name" id="Name" name="Name"> </section>
+                    <section><label>Date of Birth</label> <input required type="date" id="date" name="Date of Birth"> </section>
+                    <section><label>Favorite Color</label> <input type="color" id="color" name="Favorite Color"> </section>
+                    <section><label>Profile Photo(s)</label> <input type="file" id="img" name="Profile Photo(s)"> </section>
+                    <section><label>Favorite Browser</label> <select required name="Favorite Browser" id="Browser"><option value="">--</option> <option value="Google Chrome">Google Chrome</option><option value="FireFox"> FireFox</option><option value="Opera">Opera</option></select> </section>
+                </fieldset>
+                <fieldset>
+                    <legend><span>3</span>Company Information </legend>
+                    <section><label>No of Employees</label> <input type="number" id="noe" name="No of Employees"> </section>
+                    <section><label>Estimated Revenue</label> <input type="range" id="er" name="Estimated Revenue"> </section>
+                </fieldset>
+                <fieldset>
+                    <legend><span>4</span>Contact Information </legend>
+                    <section><label>Email Address(es)</label> <input type="email" id="email" name="Email Address(es)"> </section>
+                    <section><label>Phone Number</label> <input type="number" id="ph" minlength="6" maxlength="10" name="Phone Number"> </section>
+                    <section><label>Website URL</label> <input type="url" id="wbURL" name="Website URL"> </section>
+                </fieldset>
+                <fieldset >
+                    <div class="last">
+                        <section><input type="submit"  class="sub" id="sub" value="Submit"></section>
+                        <section> <input type="reset" class="res" value="Resete"> </section>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+
+
+        <script src="firstPage.js"></script>
+    </body>
+
+</html>
