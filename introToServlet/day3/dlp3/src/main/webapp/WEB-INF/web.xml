@@ -1,0 +1,83 @@
+<web-app xmlns= "https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation= "https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version= "5.0" metadata-complete= "true">
+
+
+
+    <context-param>
+        <param-name>context1</param-name>
+        <param-value>context Value 1</param-value>
+    </context-param>
+    <context-param>
+        <param-name>context2</param-name>
+        <param-value>context Value 2</param-value>
+    </context-param>
+
+
+
+    <servlet>
+        <servlet-name>showConfig</servlet-name>
+        <servlet-class>dl3.showConfig</servlet-class>
+
+        <init-param>
+            <param-name>Hello</param-name>
+            <param-value>Welcom User</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Hello1</param-name>
+            <param-value>Welcom User1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Hello2</param-name>
+            <param-value>Welcom User2</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>showConfig</servlet-name>
+        <url-pattern>/shConfig</url-pattern>  
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>showContext</servlet-name>
+        <servlet-class>dl3.shContPar</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>showContext</servlet-name>
+        <url-pattern>/shcont</url-pattern>  
+    </servlet-mapping>
+
+    
+    <servlet>
+        <servlet-name>newobj</servlet-name>
+        <servlet-class>dl3.newObj</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>newobj</servlet-name>
+        <url-pattern>/nwObj</url-pattern>  
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>obj</servlet-name>
+        <servlet-class>dl3.testAttr</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>obj</servlet-name>
+        <url-pattern>/obj</url-pattern>  
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>head</servlet-name>
+        <servlet-class>dl3.head</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>head</servlet-name>
+        <url-pattern>/head</url-pattern>  
+    </servlet-mapping>
+
+</web-app>

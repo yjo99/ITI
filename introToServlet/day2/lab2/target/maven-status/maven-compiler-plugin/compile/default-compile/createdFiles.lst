@@ -1,0 +1,14 @@
+com\lab2\jpa.class
+com\Entities\Capabilitylist.class
+com\Entities\Aircraftmodel.class
+com\Entities\Typeofservices.class
+com\Entities\Actionreq.class
+com\Entities\PartsWorkshop.class
+com\Entities\Workorder.class
+com\Entities\Aircrafttype.class
+com\lab2\loginServ.class
+com\Entities\Workorderplace.class
+com\Entities\Owner.class
+com\lab2\loginServ$welcomServ.class
+com\lab2\errorServ.class
+com\lab2\welcomServ.class
