@@ -1,0 +1,68 @@
+<web-app xmlns= "https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation= "https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version= "5.0" metadata-complete= "true">
+
+
+
+
+<!--    Cookies -->
+    <servlet>
+        <servlet-name>LogIn</servlet-name>
+        <servlet-class>com.serv.Cookies.log</servlet-class>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogIn</servlet-name>
+        <url-pattern>/log</url-pattern>
+    </servlet-mapping>
+    
+    
+<!--    //HomePage-->
+    <servlet>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>com.serv.Cookies.HomePage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomePage</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+
+    <!--    //HomePage-->
+    <servlet>
+        <servlet-name>ckCookie</servlet-name>
+        <servlet-class>com.serv.Cookies.checkCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ckCookie</servlet-name>
+        <url-pattern>/ckCookie</url-pattern>
+    </servlet-mapping>
+
+
+    <!--    //logError-->
+    <servlet>
+        <servlet-name>error</servlet-name>
+        <servlet-class>com.serv.Cookies.error</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>error</servlet-name>
+        <url-pattern>/error</url-pattern>
+    </servlet-mapping>
+
+    <!--    //ckerrorMessage-->
+    <servlet>
+        <servlet-name>ckerror</servlet-name>
+        <servlet-class>com.serv.Cookies.cookieError</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ckerror</servlet-name>
+        <url-pattern>/ckerror</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+<!--    Session-->
+
+
+
+</web-app>
