@@ -1,0 +1,34 @@
+
+        <div class="cont">
+            <header>
+                <h3> Add New Employee </h3>
+            </header>
+
+            <!-- <h1 style="background-color: rgba(241, 103, 103, 0.678); color: darkred; border: solid 2px darkred;"></h1> -->
+            <form name="form">
+                <fieldset>
+                    <legend><span>1</span>Employee Information </legend>
+                    <section><label>First Name</label> <input #inputFirstName type="name" id="firstName" name="firstName" required> </section>
+                    <section><label>Last Name</label> <input #inputLastName type="name" id="lastName" name="lastName" required> </section>
+                    
+                    <section><label>How Old Are you?</label> <input #inputAge type="name" id="age" name="age"> </section>
+                </fieldset>
+                
+                <fieldset >
+                    <div class="last">
+                        <section>
+                            <button  class="sub" id="sub"  type="button" (click)="addEmployee(inputFirstName.value,inputLastName.value,inputAge.value)" > Save</button>
+
+                        </section>
+                       
+                    </div>
+                </fieldset>
+                <fieldset >
+                    <div class="last">
+                        <h1> {{getNumberOfEmployees()}} </h1>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+

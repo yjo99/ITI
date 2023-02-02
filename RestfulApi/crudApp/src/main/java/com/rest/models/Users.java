@@ -1,6 +1,6 @@
 package com.rest.models;
 
-import lombok.Data;
+// import lombok.Data;
 
 
 public class Users {
