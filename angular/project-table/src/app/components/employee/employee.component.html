@@ -1,6 +1,6 @@
 <title>Employee Page</title>
 
-<div class="info_table cont" style="height: 100vh">
+<div class="info_table" style="height: 100vh">
   <div style="height: 2vh"></div>
   <h1 class="heading">Add New Employee</h1>
   <div class="line"></div>
@@ -10,7 +10,7 @@
     <div>
       <form class="info-form" method="get">
         <div class="row">
-          <section>
+          <div class="col">          <section>
             <label>First Name</label>
             <input
               #inputFirstName
@@ -21,6 +21,10 @@
             />
           </section>
 
+          </div>
+
+          <div class="col">
+ 
           <section>
             <label>Last Name</label>
             <input
@@ -32,12 +36,30 @@
             />
           </section>
 
+        </div>
+
+        <div class="col">
+
           <section>
             <label>How Old Are you?</label>
             <input #inputAge type="number" id="age" name="age" />
           </section>
-          <button class="sub" id="sub" value="0" type="button" (click)="add(inputFirstName.value, inputLastName.value, +inputAge.value)">Save</button>
         </div>
+
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="sub" id="sub" value="0" type="button" (click)="add(inputFirstName.value, inputLastName.value, +inputAge.value)">Save</button>
+
+        </div>
+        <div class="col">
+         
+        </div>
+        <div class="col">
+         
+        </div>
+      
+      </div>
       </form>
     </div>
     <div style="height: 6vh"></div>
@@ -62,7 +84,7 @@
             <td>{{employeeIndex +1}} </td> 
             <td [ngClass]="{'errorMessage': employee.age>30, 'greenMessage':employee.age<=30 }">{{employee.firstName}} {{ employee.lastName}}</td>
             <td><input type ="number"  [(ngModel)]="employee.age"> </td>
-            <td><button (click)="delete(employeeIndex)">Delete</button></td>
+            <td><button class="btn btn-danger" (click)="delete(employeeIndex)">Delete</button></td>
           </tr>
       </table>
     </div>

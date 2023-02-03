@@ -1,0 +1,155 @@
+<title>Employee Page</title>
+
+<div class="info_table" style="height: 100vh">
+  <div style="height: 2vh"></div>
+  <h1 class="heading">Add New Student</h1>
+  <div class="line"></div>
+  <div>
+    <div class="errorMessage" *ngIf="isValueEmpty">
+      Please Fill The input Values
+    </div>
+    <div class="errorMessage" *ngIf="isStuExist">
+      This Student is Already Exist
+    </div>
+    <div>
+      <form class="info-form" method="get">
+        <div class="row">
+          <div class="col">
+            <section>
+              <label>FirstName</label>
+              <input
+              #inputFirstName
+                type="name"
+                id="firstName"
+                name="firstName"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="col">
+            <section>
+              <label>LastName</label>
+              <input
+              #inputLastName
+                type="name"
+                id="lastName"
+                name="lastName"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="col">
+            <section>
+              <label>How Old Are you?</label>
+              <input #inputAge type="number" id="age" name="age" />
+            </section>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <section>
+              <label>Mobile</label>
+              <input
+                #inputMobile
+                type="name"
+                id="mobile"
+                name="mobile"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="col">
+            <section>
+              <label>Email</label>
+              <input
+                #inputEmail
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+            </section>
+          </div>
+
+          <div class="col">
+            <section>
+              <label>NationalId</label>
+              <input
+                #inputNationalId
+                type="name"
+                id="nationalId"
+                name="nationalId"
+              />
+            </section>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button
+              class="sub"
+              id="sub"
+              type="button"
+              (click)="
+                add(
+                  inputFirstName.value,
+                  inputLastName.value,
+
+                  inputMobile.value,
+                  inputEmail.value,
+                  inputNationalId.value,
+                  +inputAge.value
+                )
+              "
+            >
+              Save
+            </button>
+          </div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+      </form>
+    </div>
+    <div style="height: 6vh"></div>
+
+    <div style="height: 6vh"></div>
+    <div class="row">
+      <div class="col-1">
+        <h3>Total: {{getTotal()}}</h3>
+      </div>
+      <div class="col-10"></div>
+    </div>
+
+    <div style="height: 3vh"></div>
+
+    <div class="overtable">
+      <table id="info_table">
+        <tr>
+          <th>#</th>
+          <th>NAME</th>
+          <th>AGE</th>
+          <th>MOBILE</th>
+          <th>EMAIL</th>
+          <th>NATIONALID</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let student of students; let currentIndex = index">
+          <td>{{ student.ID }}</td>
+          
+          <td><a routerLink="/">{{ student.Name }}</a></td>
+          <td>{{ student.Age }}</td>
+          <td>{{student.Mobile}}</td>
+          <td>{{ student.Email }}</td>
+          <td>{{student.NationalID}}</td>
+          <td>
+            <button class="btn btn-danger" (click)="delete(currentIndex)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

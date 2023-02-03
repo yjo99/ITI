@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { employee } from './employee';
+import { employee } from '../../models/employee';
 import { EmployeeService } from '../../services/employee.service';
 import { first } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { first } from 'rxjs';
   styleUrls: ['./employee.component.css'],
 })
 export class EmployeeComponent {
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService<employee>) {}
 
   //array of employees
   employees: employee[] = [];

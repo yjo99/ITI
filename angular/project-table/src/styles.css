@@ -24,7 +24,7 @@ body{
     background-color: #3d3d3d;
 }
 
-.nav {
+.navbar {
     overflow: hidden;
     background-color: white;
   }
@@ -273,7 +273,9 @@ table tr:hover{
   }
   
   
-  
+  .row{
+    margin: 10px 0;
+  }
   
   
   /* **************************/
@@ -300,3 +302,4 @@ table tr:hover{
 
 
    /* ///importing bootstar */
+   @import '~bootstrap/dist/css/bootstrap.min.css'
