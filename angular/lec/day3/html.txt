@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="card" style="width: 50rem;">
+        <div class="card-header">
+          Hello mohamed your tasks is 10
+        </div>
+        <div class="row">
+            <div class="col-md-9"><input    type="text" class="form-control"></div>
+            <div class="col-md-3">
+                <button type="button"  class="btn btn-primary">Add</button>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+
+                    <th scope="col">Status</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr >
+                    <th scope="row">1</th>
+                    <td>
+                     Learn Ang
+                      
+                      </td>
+                      <td>
+                        1-1-2000
+                      </td>
+                    <td> <input  type="checkbox" > </td>
+                    <td> 
+                        <button type="button"  class="btn btn-danger">Delete</button>
+                    </td>
+                  </tr>
+                  <tr  >
+                      <td colspan="3">No tasks found</td>
+                  </tr>
+                  <tr  >
+                    <td colspan="3">Loading...........</td>
+                </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+   
+</div>

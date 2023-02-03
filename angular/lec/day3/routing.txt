@@ -1,0 +1,5 @@
+1-import RouterModule.
+2-define router-outlet
+3-define pathes.
+4-links.
+5-pass parmeter.

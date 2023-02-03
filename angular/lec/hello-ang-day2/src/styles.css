@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+.red-color{
+    color: red;;
+}
+
+.green-color{
+    color: green;;
+}
+.italic-txt{
+   font-style: italic;
+}

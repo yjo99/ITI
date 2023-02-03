@@ -1,0 +1,302 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color: #ddd;
+    font-family: 'Changa';
+}
+.cont{
+    width: 90%;
+    margin: auto;
+}
+
+.row{
+    display: flex;
+}
+.line{
+    height: 2px;
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #3d3d3d;
+}
+
+.nav {
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  /* Links inside the navbar */
+  .nav a {
+    float: left;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-right: 1px solid black;
+    
+  }
+  
+  /* The dropdown container */
+  .drop {
+    float: left;
+    overflow: hidden;
+    border-right: 1px solid black;
+  }
+  
+  /* Dropdown button */
+  .drop .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  /* Add a red background color to navbar links on hover */
+  .nav a:hover, .drop:hover .dropbtn {
+    background-color: #0063CC;
+    color: white;
+    transition: 0.5s;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .drop-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .drop-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid black;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .drop-content a:hover {
+    background-color: #0063CC;
+    color: white;
+    transition: 0.5s;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .drop:hover .drop-content {
+    display: block;
+  }
+  option{
+    font-size: x-large;
+}
+
+label{
+
+    top:0;
+    font-weight: bold;
+}
+ input{
+    padding: 10px;
+    width: 90%;
+    height: 30px;
+    border: 1px solid #005792;
+    border-radius: 5px;
+}
+
+
+button{
+    background-color: #005792;
+    color: white;
+    padding: 15px 30px;
+   
+    border: none;
+    border-radius: 5px;
+   
+    
+}
+.errorMessage{
+    background-color: rgba(255, 137, 137, 0.562);
+    color: darkred;
+    font-weight: bolder;
+    border: solid 1px darkred;
+    padding: 15px 10px;
+    margin: 15px 10px;
+}
+.greenMessage{
+    background-color: rgba(137, 255, 157, 0.562);
+    color:darkgreen;
+    font-weight: bolder;
+    border: solid 1px darkgreen;
+    padding: 15px 10px;
+    margin: 15px 10px;
+}
+
+
+
+  /* Form style */
+
+/*   
+  .form{
+    margin: 15px 0;
+    
+}
+
+.info_form{
+    display:flex;
+    flex-wrap: wrap;
+    
+}
+.coll{
+
+    padding: 25px 0;
+    width: 33.3%;
+    height:30px;
+    margin-bottom: 15px;
+}
+label{
+
+    top:0;
+    font-weight: bold;
+}
+
+.info_form input{
+    padding: 10px;
+    width: 90%;
+    height: 30px;
+    border: 1px solid #005792;
+    border-radius: 5px;
+}
+select{
+    margin-right: 25px;
+    width: 90%;
+    height: 30px;
+    border: 1px solid #005792;
+    border-radius: 5px;
+}
+
+
+.btn{
+    display:flex;
+    width: 50%;
+}
+
+input[type=submit], input[type=reset]{
+    background-color: #005792;
+    color: white;
+    padding: 5px;
+    margin: 8px 5px;
+    border: none;
+    border-radius: 5px;
+    width:80%
+    
+}
+
+input[type=submit]:hover , input[type=reset]:hover{
+    background-color: #004492;
+    transition: 0.3s;
+}
+
+
+
+
+.info_form{
+    margin-top: 15px;
+}
+label{
+    color: #005792;
+} */
+.form-check-input{
+  width: 25px;
+  height: 25px;
+  position: inherit;
+  margin-top: 40px;
+}
+
+/* **************************/
+/*  END Form */
+/****************************/
+
+
+/* **************************/
+/*  START TABLE */
+/****************************/
+
+
+
+.info_table{
+    margin-top: 25px;
+  }
+
+.overtable {
+    height: 100vh;
+    overflow-y: auto;
+  }
+table{
+    width: 90%;
+    margin: 15px auto;
+    border-collapse: collapse;
+  }
+table th, table td{
+    border: 1px solid #bbbbbb;
+    padding: 10px
+  }
+table th{
+    background-color: #4a8bd6;
+    color: white;
+    position: sticky;
+    top: 0;
+  }
+table th:hover{
+    background-color: #133253;
+    transition: 0.3s;
+  }
+table tr:nth-child(even){
+    background-color: white;
+    
+  }
+table tr:hover{
+    background-color:#a8a8a8;
+    transition:0.3s;
+  }
+  
+  
+  
+  
+  
+  /* **************************/
+  /*  END TABLE */
+  /****************************/
+  
+
+
+.wo_card{
+     
+  border-radius: 10px;
+  background-color: white;
+
+   }
+
+   /*  Logo */
+
+   /* .logo{
+     width: 50px;
+     height: 50px;
+     background-image: url('C:\Users\mohamed\Downloads\New folder\ws_system\static\img\logo.png');
+   } */
+
+
+
+   /* ///importing bootstar */

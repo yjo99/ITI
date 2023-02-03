@@ -1,0 +1,31 @@
+<!-- <input type="text" [value]="firstName" #inputFirstName (keyup)="changeFirstName(inputFirstName.value)"> -->
+<!-- <input type="text" [(ngModel)]="firstName" >
+<h1 class="red-color">My Fisrt Name is : {{firstName}}</h1>
+<h1>My Last Name is : {{lastName}}</h1>
+<input #inputLastName type="text" [value]="lastName" (keyup)="changeLastName(inputLastName.value)">
+<button (click)="changeLastName(inputLastName.value)">Change Last Name</button>
+<h1>My Full Name is : {{firstName+' '+lastName}}</h1>
+<h1>My AGE</h1>
+<input type="number" [(ngModel)]="age" >
+<br>
+<h1 class="default"  [class.red-color]="age>=30" [class.green-color]="age<30" [class.italic-txt]="age<30" >My age is {{age}}</h1>
+<h1 [ngClass]="{'green-color italic-txt': age<30 , 'red-color':age>=30}">My age is {{age}}</h1>
+
+    <h1 [hidden]="age<30" class="red-color" >Sorry your age above 30</h1>
+    <h1 *ngIf="age>=30" class="red-color" >Sorry your age above 30</h1>
+
+<img [src]="imageURL"> -->
+
+<table>
+    <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Action</td>
+    </tr>
+   <tr *ngFor="let item of courses;let currentIndex=index">
+    <td>{{currentIndex+1}}</td>
+    <td>{{item}}</td>
+    <td><button (click)="deleteCourse(currentIndex)">DELETE</button></td>
+   </tr>
+   
+</table>

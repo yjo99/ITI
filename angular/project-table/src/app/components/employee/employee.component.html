@@ -1,0 +1,70 @@
+<title>Employee Page</title>
+
+<div class="info_table cont" style="height: 100vh">
+  <div style="height: 2vh"></div>
+  <h1 class="heading">Add New Employee</h1>
+  <div class="line"></div>
+  <div>
+    <div class="errorMessage" *ngIf="isValueEmpty"> Please Fill The input Values</div>
+    <div class="errorMessage" *ngIf="isEmpExist"> This Employee is Already Exist</div>
+    <div>
+      <form class="info-form" method="get">
+        <div class="row">
+          <section>
+            <label>First Name</label>
+            <input
+              #inputFirstName
+              type="name"
+              id="firstName"
+              name="firstName"
+              required
+            />
+          </section>
+
+          <section>
+            <label>Last Name</label>
+            <input
+              #inputLastName
+              type="name"
+              id="lastName"
+              name="lastName"
+              required
+            />
+          </section>
+
+          <section>
+            <label>How Old Are you?</label>
+            <input #inputAge type="number" id="age" name="age" />
+          </section>
+          <button class="sub" id="sub" value="0" type="button" (click)="add(inputFirstName.value, inputLastName.value, +inputAge.value)">Save</button>
+        </div>
+      </form>
+    </div>
+    <div style="height: 6vh"></div>
+
+    <div style="height: 6vh"></div>
+    <div class="row">
+      <div class="col-1"><h3>Total: {{getNumberOfEmployees()}}</h3></div>
+      <div class="col-10"></div>
+    </div>
+
+    <div style="height: 3vh"></div>
+
+    <div class="overtable">
+      <table id="info_table">
+        <tr >
+          <th>#</th>
+          <th>NAME</th>
+          <th>AGE</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let employee of  sort(); let employeeIndex = index">
+            <td>{{employeeIndex +1}} </td> 
+            <td [ngClass]="{'errorMessage': employee.age>30, 'greenMessage':employee.age<=30 }">{{employee.firstName}} {{ employee.lastName}}</td>
+            <td><input type ="number"  [(ngModel)]="employee.age"> </td>
+            <td><button (click)="delete(employeeIndex)">Delete</button></td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>
