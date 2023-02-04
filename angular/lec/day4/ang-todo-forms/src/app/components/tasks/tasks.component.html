@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="card" style="width: 50rem;">
+        <div class="card-header">
+          Hello {{name}} your pending tasks is {{getPendingTasksCount()}}
+        </div>
+        <div class="row">
+            <div class="col-md-9"><input #inputTitle (keyup.enter)="add(inputTitle.value);inputTitle.value='';"   type="text" class="form-control"></div>
+            <div class="col-md-3">
+                <button type="button" (click)="add(inputTitle.value);inputTitle.value='';"  class="btn btn-primary">Add</button>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+
+                    <th scope="col">Status</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of tasks;let currentIndex=index">
+                    <th scope="row">{{currentIndex+1}}</th>
+                    <td>
+                      <a routerLink="/details/{{item.ID}}">
+                        {{item.Title | uppercase | maxLength:5}} 
+                      </a>   
+
+                        
+                      
+                      </td>
+                      <td>
+                        {{item.CreatedDate | date:'dd-MM-yyyy'}}
+                      </td>
+                    <td> <input  type="checkbox" (change)="update(item)" [checked]="item.IsDone" > </td>
+                    <td> 
+                        <button type="button" (click)="delete(currentIndex)" class="btn btn-danger">Delete</button>
+                    </td>
+                  </tr>
+                  <!-- <tr  >
+                      <td colspan="3">No tasks found</td>
+                  </tr>
+                  <tr  >
+                    <td colspan="3">Loading...........</td>
+                </tr> -->
+                </tbody>
+              </table>
+        </div>
+      </div>
+   
+</div>

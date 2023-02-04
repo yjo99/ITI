@@ -1,4 +1,5 @@
-<title>Employee Page</title>
+<title>student Page</title>
+
 
 <div class="info_table" style="height: 100vh">
   <div style="height: 2vh"></div>
@@ -12,7 +13,7 @@
       This Student is Already Exist
     </div>
     <div>
-      <form class="info-form" method="get">
+      <form [formGroup]="addStudentForm" class="info-form" method="get">
         <div class="row">
           <div class="col">
             <section>
@@ -22,6 +23,7 @@
                 type="name"
                 id="firstName"
                 name="firstName"
+                formControlName="firstName"
                 required
               />
             </section>
@@ -35,7 +37,7 @@
                 type="name"
                 id="lastName"
                 name="lastName"
-                required
+                formControlName="lastName"
               />
             </section>
           </div>
@@ -43,7 +45,7 @@
           <div class="col">
             <section>
               <label>How Old Are you?</label>
-              <input #inputAge type="number" id="age" name="age" />
+              <input formControlName="age" #inputAge type="number" id="age" name="age" />
             </section>
           </div>
         </div>
@@ -56,7 +58,7 @@
                 type="name"
                 id="mobile"
                 name="mobile"
-                required
+                formControlName="mobile"
               />
             </section>
           </div>
@@ -69,6 +71,7 @@
                 type="email"
                 id="email"
                 name="email"
+                formControlName="email"
                 required
               />
             </section>
@@ -82,6 +85,7 @@
                 type="name"
                 id="nationalId"
                 name="nationalId"
+                formControlName="nationalId"
               />
             </section>
           </div>
@@ -153,3 +157,5 @@
     </div>
   </div>
 </div>
+
+

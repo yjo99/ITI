@@ -1,0 +1,34 @@
+<div class="container">
+    <div [formGroup]="loginForm" >
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input formControlName="Email" [class.is-valid]="!loginForm.controls['Email'].errors" [class.is-invalid]="loginForm.controls['Email'].errors"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <div class="text-danger" *ngIf="loginForm.controls['Email'].errors">
+           
+            <small id="emailHelp" *ngIf="loginForm.controls['Email'].hasError('required')" class="form-text text-danger">Required Field</small>
+            <small id="emailHelp"  *ngIf="loginForm.controls['Email'].hasError('email')" class="form-text text-danger">Invalid email</small>
+            <small id="emailHelp"  *ngIf="loginForm.controls['Email'].hasError('minlength')" class="form-text text-danger">Min length</small>
+            <small id="emailHelp"  *ngIf="loginForm.controls['Email'].hasError('maxlength')" class="form-text text-danger">Max length</small>
+          
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input formControlName="Password" type="password"  [class.is-valid]="!loginForm.controls['Password'].errors" [class.is-invalid]="loginForm.controls['Password'].errors" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Gender</label>
+<select (change)="changeGender()" formControlName="Gender" class="form-control">
+    <option value="1">Male</option>
+    <option value="2">Female</option>
+</select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">MileteryStatus</label>
+            <input formControlName="MileteryStatus" type="text"  [class.is-valid]="!loginForm.controls['MileteryStatus'].errors" [class.is-invalid]="loginForm.controls['MileteryStatus'].errors" class="form-control" id="exampleInputPassword1" placeholder="MileteryStatus">
+          </div>
+      <!-- <button type="button" (click)="removePasswordValidators()">Remove Validation</button> -->
+        <button type="button" (click)="login()"  [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+      </div>
+</div>
+

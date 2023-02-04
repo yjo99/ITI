@@ -1,0 +1,97 @@
+<div>
+    <form [formGroup]="userInformation">
+
+        <div class="row">
+
+            <section class="col">
+                <label>Name</label>
+                <input
+                    
+                  type="name"
+                  formControlName="name"
+                  [class.is-valid]="!userInformation.controls['name'].errors" [class.is-invalid]="userInformation.controls['name'].errors"
+                  
+                  
+                />
+                <div *ngIf="userInformation.controls['name'].hasError('required')" id="validationServerUsernameFeedback" class="invalid-feedback">
+                    Please add your Name
+                </div>
+                <div *ngIf="userInformation.controls['name'].hasError('maxlength')" id="validationServerUsernameFeedback" class="invalid-feedback">
+                    your name must be shorter than {{maxLength}} and your length is {{userInformation.controls['name'].value.length}}
+                </div>
+                <div *ngIf="userInformation.controls['name'].hasError('minlength')" id="validationServerUsernameFeedback" class="invalid-feedback">
+                    your name must be greater than {{minLength}} and your length is {{userInformation.controls['name'].value.length}}
+                </div>
+                <div *ngIf="!userInformation.controls['name'].errors" id="validationServerUsernameFeedback" class="invalid-feedback">
+                    good Job!!
+                </div>
+              </section>
+              <section class="col">
+                <label>Email</label>
+                <input
+                    
+                  type="email"
+                  formControlName="email"
+                />
+              </section>
+              <section class="col">
+                <label>Password</label>
+                <input
+                
+                  type="password"
+
+                  formControlName="password"
+                />
+              </section>
+
+        </div>
+
+        <div class="row">
+
+            <section class="col">
+                <label>Age...</label>
+                <input
+               
+                  type="number"
+                  
+                  formControlName="age"
+                />
+              </section>
+             
+              <section  class="col">
+                <label>Gender</label>
+                <select formControlName="gender" (change)="milteryServicestatus()">
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+                <div *ngIf="userInformation.controls['gender'].hasError('required')" id="validationServerUsernameFeedback" class="invalid-feedback">
+                    Please add your gender
+                </div>
+              </section>
+
+              <section  class="col">
+                <div [hidden]="!userInformation.controls['militaryService'].hasError('required')">
+                <label>military Service</label>
+                <select  formControlName="militaryService">
+                    <option value="1">Completed</option>
+                    <option value="2">NotYet</option>
+                </select>
+            </div>
+              </section>
+        </div>
+        
+          <div class="row">
+            <div class="col">
+            <button  (click)="add()" [disabled]="userInformation.invalid" type="button"> Save </button>
+            </div>
+            <div class="col">
+                    <h3>{{userInformation.invalid}}</h3>
+            </div>
+            <div class="col">
+
+            </div>
+          </div>
+       
+    
+    </form>
+</div>

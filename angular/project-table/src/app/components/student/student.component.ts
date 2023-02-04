@@ -4,6 +4,7 @@ import { Student } from 'src/app/models/student';
 import { EmployeeService } from '../../services/employee.service';
 import { ResponseViewModel } from 'src/app/models/responsive-view-model';
 import { AddStudent } from 'src/app/models/addStudent';
+import {FormGroup, FormControl,FormBuilder, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-student',
@@ -16,7 +17,7 @@ export class StudentComponent implements OnInit {
   isStuExist:boolean = false;
   isValueEmpty:boolean = false;
 
-  constructor( private studentServ:EmployeeService<Student>, private http:HttpClient){
+  constructor( private studentServ:EmployeeService<Student>, private http:HttpClient, private formgroup:FormBuilder){
     
 
     
@@ -29,6 +30,17 @@ export class StudentComponent implements OnInit {
       }
     )
   }
+
+
+   //for form control
+    addStudentForm:any = this.formgroup.group({
+    firstName : ["", Validators.required, Validators.maxLength(15), Validators.minLength(3)],
+    lastName : [""],
+    age : [0,],
+    mobile :[""],
+    email : [""],
+    nationalId : [""],
+  })
 
 
 
