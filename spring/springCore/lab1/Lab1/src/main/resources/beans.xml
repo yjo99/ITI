@@ -2,11 +2,75 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd" default-lazy-init="true">
 
+<!--    //instantiationg beans-->
+<!--    /// defalut is singltone-->
 
+        <!-- instantiating with constructor -->
         <bean id="calcImp1" class="iti.springcore.CalculatorImp1">
-            <constructor-arg value="10"></constructor-arg>
-            <constructor-arg value="10"></constructor-arg>
+            <constructor-arg value="5"></constructor-arg>
+            <constructor-arg value="Integer.parseInt(10)"></constructor-arg>
         </bean>
+
+
+        <!-- create static method , instantition with static factory method -->
+        <bean id="HelloWorldClass" class="iti.springcore.HelloWorldImp"></bean>
+        <bean id="HelloWorld" class="iti.springcore.HelloWorldImp" factory-method="HelloRender">
+        </bean>
+
+<!--        instatantiatino normal factory method with factory bean-->
+        <bean id="div" factory-bean="HelloWorldClass" factory-method="Abbas">
+            <constructor-arg type="java.lang.String" value="Yousef"></constructor-arg>
+        </bean>
+
+
+
+<!--    Dependncy Injection-->
+<!--    constructor injection -->
+        <bean id="course1" class="iti.springcore.Course">
+            <constructor-arg index="0" value="1"/>
+            <constructor-arg index="1" value="Mathematics"/>
+            <constructor-arg index="2" value="M64"/>
+        </bean>
+
+        <bean id="user1" class="iti.springcore.User">
+            <constructor-arg index="0" type="java.lang.String" value="Yousef Sayed"/>
+            <constructor-arg index="1" type="int"  value="2"/>
+            <constructor-arg index="2" ref="course1"/>
+
+        </bean>
+
+
+<!--    factory method injection-->
+    <bean id="course2" class="iti.springcore.Course">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="Functional Analysis"/>
+        <constructor-arg index="2" value="F204"/>
+    </bean>
+    <bean id="courseName" factory-bean="user1" factory-method="getCourseName">
+        <constructor-arg ref="course2"/>
+    </bean>
+
+
+<!--    /// using setter of user11  //fatctory bean -->
+        <bean id="setterCourse" class="iti.springcore.User">
+            <property name="course" ref="course2"></property>
+
+        </bean>
+
+
+<!--    // try circular dependency-->
+<!--    this will back error-->
+<!--    to solve this problem using one const and another is setter-->
+
+    <bean id="circ1" class="iti.springcore.Circular1">
+<!--        <constructor-arg ref="circ2"/>-->
+        <property name="cir2" ref="circ2"></property>
+    </bean>
+
+    <bean id="circ2" class="iti.springcore.Circular2">
+<!--        <property name="cir1" ref="circ1"></property>-->
+        <constructor-arg ref="circ1"/>
+    </bean>
 </beans>
