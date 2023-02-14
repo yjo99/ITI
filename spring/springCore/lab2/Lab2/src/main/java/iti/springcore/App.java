@@ -2,6 +2,7 @@ package iti.springcore;
 
 
 import iti.classes.*;
+import iti.Autowiring.*;
 
 import org.springframework.context.*;
 import org.springframework.context.support.*;
@@ -14,7 +15,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext fact = new ClassPathXmlApplicationContext("beans.xml");
+        ConfigurableApplicationContext fact = new ClassPathXmlApplicationContext("beans.xml");
 
         System.out.println("=================");
         System.out.println("idref");
@@ -55,7 +56,35 @@ public class App
         
 
 
+        ///// compunded
+        System.out.println();
+        System.out.println("=================");
+        System.out.println(" autowiring byType");
+        System.out.println("=================");
+        Wire1 auto = (Wire1) fact.getBean("wire1");
+        System.out.println(auto.getW2());
 
+
+        System.out.println();
+        System.out.println("=================");
+        System.out.println(" autowiring byName");
+        System.out.println("=================");
+        Wire1 autoByName = (Wire1) fact.getBean("wireByName");
+        System.out.println(autoByName.getW2());
+
+
+
+        System.out.println();
+        System.out.println("=================");
+        System.out.println(" autowiring by Constructor");
+        System.out.println("=================");
+        Wire1 autoByCon = (Wire1) fact.getBean("wireByConstructor");
+        System.out.println(autoByCon.getText());
+        System.out.println(autoByCon.getW2());
+
+
+
+        fact.registerShutdownHook();
 
 
 

@@ -1,96 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd" default-lazy-init="false">
+    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd"
+    default-lazy-init="true" default-init-method="init" default-destroy-method="des">
 
 
-        <!-- //idref -->
-        <bean id="course1" class="iti.classes.Course">
-            <property name="name" value="Mathematics"/>
-            <property name="id" value="406"/>
+    <!-- //idref -->
+    <bean id="course1" class="iti.classes.Course">
+        <property name="name" value="Mathematics" />
+        <property name="id" value="406" />
+    </bean>
+
+    <bean id="User1" class="iti.classes.User">
+        <property name="name" value="Yousef Sayed Abdelaziz" />
+        <property name="idCourse">
+            <idref bean="course1"></idref>
+        </property>
+        <!-- <property name="course" ref="course1"/>  -->
+    </bean>
+
+
+    <!-- // Parent -->
+    <bean id="User2" class="iti.classes.User" scope="prototype">
+        <property name="name" value="Yousef Sayed Abdelaziz"></property>
+        <property name="idCourse">
+            <idref bean="course1" />
+        </property>
+        <property name="course">
+            <ref bean="course1"></ref>
+        </property>
+    </bean>
+    <!-- // Parent -->
+    <bean id="User3" class="iti.classes.User">
+        <property name="name" value="Yousef Sayed Abdelaziz"></property>
+        <property name="idCourse">
+            <idref bean="course1" />
+        </property>
+        <property name="course">
+            <ref bean="course1"></ref>
+        </property>
+    </bean>
+    <!-- // Parent -->
+    <bean id="User4" class="iti.classes.User">
+        <property name="name" value="Yousef Sayed Abdelaziz"></property>
+        <property name="idCourse">
+            <idref bean="course1" />
+        </property>
+        <property name="course">
+            <ref bean="course1"></ref>
+        </property>
+    </bean>
+    <!-- // Parent -->
+    <bean id="User5" class="iti.classes.User">
+        <property name="name" value="Yousef Sayed Abdelaziz"></property>
+        <property name="idCourse">
+            <idref bean="course1" />
+        </property>
+        <property name="course">
+            <ref bean="course1"></ref>
+        </property>
+    </bean>
+
+
+    <!-- // Collections -->
+
+    <!-- List -->
+    <bean id="Users" class="iti.collections.coursePerUsers">
+        <property name="course" ref="course1"></property>
+        <property name="users">
+            <list>
+                <ref bean="User1" />
+                <ref bean="User2" />
+                <ref bean="User3" />
+                <ref bean="User4" />
+                <ref bean="User5" />
+            </list>
+        </property>
+
+    </bean>
+
+
+    <!-- sets -->
+    <bean id="UsersSet" class="iti.collections.coursePerUsers">
+        <property name="course" ref="course1"></property>
+        <property name="usersSet">
+            <set>
+                <ref bean="User1" />
+                <ref bean="User2" />
+                <ref bean="User3" />
+                <ref bean="User4" />
+                <ref bean="User5" />
+            </set>
+        </property>
+
+    </bean>
+
+
+    <!-- //compount property -->
+    <bean id="userCom" class="iti.classes.User">
+        <property name="name" value="Jo"></property>
+        <property name="idCourse">
+            <idref bean="course1"></idref>
+        </property>
+        <property name="course" ref="course1"></property>
+        <property name="course.name" value="Functional Analysis"></property>
+        <property name="course.id" value="8888888"></property>
+    </bean>
+
+
+    <!-- ///// Autowiring -->
+    <bean id="wire1" class="iti.Autowiring.Wire1" autowire="byType">
+        <property name="text" value="Hello"></property>
+    </bean>
+
+
+    <bean id="wire2" class="iti.Autowiring.Wire2">
+        <property name="name" value="test1"></property>
+    </bean>
+    <bean id="w2" class="iti.Autowiring.Wire2">
+        <property name="name" value="test2"></property>
+    </bean> 
+     <bean id="w3" class="iti.Autowiring.Wire2"  primary="true">
+        <property name="name" value="test3"></property>
+    </bean>
+    <!--<bean
+    id="wire4" class="iti.Autowiring.Wire2">
+            <property name="name" value="test1"></property>
         </bean>
-
-        <bean id="User1" class="iti.classes.User">
-            <property name="name" value="Yousef Sayed Abdelaziz"/>
-            <property name="idCourse"> <idref bean="course1"></idref></property>
-            <!-- <property name="course" ref="course1"/>  -->
-        </bean>
+        <bean id="wire5" class="iti.Autowiring.Wire2">
+            <property name="name" value="test1"></property>
+        </bean> -->
 
 
-        <!-- // Parent -->
-        <bean id="User2" class="iti.classes.User">
-            <property name="name" value="Yousef Sayed Abdelaziz"></property>
-            <property name="idCourse"> <idref bean="course1" /> </property>
-            <property name="course"> <ref bean="course1"></ref></property>
-        </bean>
-        <!-- // Parent -->
-        <bean id="User3" class="iti.classes.User">
-            <property name="name" value="Yousef Sayed Abdelaziz"></property>
-            <property name="idCourse"> <idref bean="course1" /> </property>
-            <property name="course"> <ref bean="course1"></ref></property>
-        </bean>
-        <!-- // Parent -->
-        <bean id="User4" class="iti.classes.User">
-            <property name="name" value="Yousef Sayed Abdelaziz"></property>
-            <property name="idCourse"> <idref bean="course1" /> </property>
-            <property name="course"> <ref bean="course1"></ref></property>
-        </bean>
-        <!-- // Parent -->
-        <bean id="User5" class="iti.classes.User">
-            <property name="name" value="Yousef Sayed Abdelaziz"></property>
-            <property name="idCourse"> <idref bean="course1" /> </property>
-            <property name="course"> <ref bean="course1"></ref></property>
-        </bean>
+    <!-- /// byName -->
+    <bean id="wireByName" class="iti.Autowiring.Wire1" autowire="byName">
+        <property name="text" value="wiring by name"></property>
+    </bean>
 
 
-        <!-- // Collections -->
-
-        <!-- List -->
-        <bean id="Users" class="iti.collections.coursePerUsers">
-            <property name="course" ref="course1"></property>
-            <property name="users">
-                <list>
-                    <ref bean="User1"/>
-                    <ref bean="User2"/>
-                    <ref bean="User3"/>
-                    <ref bean="User4"/>
-                    <ref bean="User5"/>
-                </list>
-            </property>
-            
-        </bean>
-
-
-        <!-- sets -->
-        <bean id="UsersSet" class="iti.collections.coursePerUsers">
-            <property name="course" ref="course1"></property>
-            <property name="usersSet">
-                <set>
-                    <ref bean="User1"/>
-                    <ref bean="User2"/>
-                    <ref bean="User3"/>
-                    <ref bean="User4"/>
-                    <ref bean="User5"/>
-                </set>
-            </property>
-            
-        </bean>
-
-
-
-
-
-
-        <!-- //compount property -->
-        <bean id="userCom" class="iti.classes.User">
-            <property name="name" value="Jo"></property>
-            <property name="idCourse" > <idref bean="course1"></idref></property>
-            <property name="course" ref="course1"></property>
-            <property name="course.name" value="Functional Analysis"></property>
-            <property name="course.id" value="8888888"></property>
-        </bean>
-
+    <!-- /// byConstructor -->
+    <bean id="wireByConstructor" class="iti.Autowiring.Wire1" autowire="constructor">
+        <constructor-arg index="1" value="Wiring by constructor"></constructor-arg>
+    </bean>
 
 
 </beans>
