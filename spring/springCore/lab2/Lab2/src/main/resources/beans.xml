@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd" default-lazy-init="false">
+
+
+        <!-- //idref -->
+        <bean id="course1" class="iti.classes.Course">
+            <property name="name" value="Mathematics"/>
+            <property name="id" value="406"/>
+        </bean>
+
+        <bean id="User1" class="iti.classes.User">
+            <property name="name" value="Yousef Sayed Abdelaziz"/>
+            <property name="idCourse"> <idref bean="course1"></idref></property>
+            <!-- <property name="course" ref="course1"/>  -->
+        </bean>
+
+
+        <!-- // Parent -->
+        <bean id="User2" class="iti.classes.User">
+            <property name="name" value="Yousef Sayed Abdelaziz"></property>
+            <property name="idCourse"> <idref bean="course1" /> </property>
+            <property name="course"> <ref bean="course1"></ref></property>
+        </bean>
+        <!-- // Parent -->
+        <bean id="User3" class="iti.classes.User">
+            <property name="name" value="Yousef Sayed Abdelaziz"></property>
+            <property name="idCourse"> <idref bean="course1" /> </property>
+            <property name="course"> <ref bean="course1"></ref></property>
+        </bean>
+        <!-- // Parent -->
+        <bean id="User4" class="iti.classes.User">
+            <property name="name" value="Yousef Sayed Abdelaziz"></property>
+            <property name="idCourse"> <idref bean="course1" /> </property>
+            <property name="course"> <ref bean="course1"></ref></property>
+        </bean>
+        <!-- // Parent -->
+        <bean id="User5" class="iti.classes.User">
+            <property name="name" value="Yousef Sayed Abdelaziz"></property>
+            <property name="idCourse"> <idref bean="course1" /> </property>
+            <property name="course"> <ref bean="course1"></ref></property>
+        </bean>
+
+
+        <!-- // Collections -->
+
+        <!-- List -->
+        <bean id="Users" class="iti.collections.coursePerUsers">
+            <property name="course" ref="course1"></property>
+            <property name="users">
+                <list>
+                    <ref bean="User1"/>
+                    <ref bean="User2"/>
+                    <ref bean="User3"/>
+                    <ref bean="User4"/>
+                    <ref bean="User5"/>
+                </list>
+            </property>
+            
+        </bean>
+
+
+        <!-- sets -->
+        <bean id="UsersSet" class="iti.collections.coursePerUsers">
+            <property name="course" ref="course1"></property>
+            <property name="usersSet">
+                <set>
+                    <ref bean="User1"/>
+                    <ref bean="User2"/>
+                    <ref bean="User3"/>
+                    <ref bean="User4"/>
+                    <ref bean="User5"/>
+                </set>
+            </property>
+            
+        </bean>
+
+
+
+
+
+
+        <!-- //compount property -->
+        <bean id="userCom" class="iti.classes.User">
+            <property name="name" value="Jo"></property>
+            <property name="idCourse" > <idref bean="course1"></idref></property>
+            <property name="course" ref="course1"></property>
+            <property name="course.name" value="Functional Analysis"></property>
+            <property name="course.id" value="8888888"></property>
+        </bean>
+
+
+
+</beans>

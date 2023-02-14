@@ -31,5 +31,8 @@ public class User {
     public static int userCount(){
         return count;
     }
+    public static void printUser(){
+        System.out.println("Hello");
+    }
 
 }

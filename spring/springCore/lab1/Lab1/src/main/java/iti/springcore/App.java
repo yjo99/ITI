@@ -101,6 +101,8 @@ public class App
         Circular1 crc1 = (Circular1) fact.getBean("circ1");
         Circular2 crc2 = (Circular2) fact.getBean("circ2");
 
+        fact.getBean("new");
+
 
 
     }

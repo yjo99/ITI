@@ -73,4 +73,5 @@
 <!--        <property name="cir1" ref="circ1"></property>-->
         <constructor-arg ref="circ1"/>
     </bean>
+    <bean id="new" class="iti.springcore.User" factory-method="printUser"></bean>
 </beans>
