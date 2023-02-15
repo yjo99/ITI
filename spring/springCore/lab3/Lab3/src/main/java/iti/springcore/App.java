@@ -1,9 +1,11 @@
 package iti.springcore;
 
-import iti.annotation.WiredByProp;
+import iti.annotation.*;
 import iti.collections.AList;
 import iti.inheritanceBean.*;
 import iti.properties.User;
+
+import java.util.*;
 
 import org.springframework.context.*;
 import org.springframework.context.support.*;
@@ -41,11 +43,44 @@ public class App
         System.out.println(u1.toString());
 
 
-        System.out.println("==============");
-        System.out.println("annotations");
-        System.out.println("===============");
-        WiredByProp wbp = (WiredByProp) fact.getBean("WiredByProp");
-        System.out.println(wbp.getCw().getText());
+        // System.out.println("=======================================");
+        // System.out.println("annotations by Prop (using reflection)");
+        // System.out.println("=======================================");
+        // WiredByProp wbp = (WiredByProp) fact.getBean("WiredByProp");
+        // System.out.println(wbp.getCw().getText());
+
+        
+        // System.out.println("=======================================");
+        // System.out.println("annotations by Setter ");
+        // System.out.println("=======================================");
+        // WiredBySetter wbs = (WiredBySetter) fact.getBean("WiredBySetter");
+        // System.out.println(wbs.getName());
+        // System.out.println(wbs.getCw().getText());
+        // System.out.println(wbs.set$getCwName().getText());
+       
+       
+       
+        System.out.println("=======================================");
+        System.out.println("annotations by constructor ");
+        System.out.println("=======================================");
+        WiredByConst wbc = (WiredByConst) fact.getBean("WiredByConstructor");
+        System.out.println(wbc.getName());
+        System.out.println(wbc.getCw());
+        //////////////////////// Question////////////
+        /// why when add required false and when create object get also error?///////
+        //////////////////////////////////////////////
+
+        System.out.println("=======================================");
+        System.out.println("annotations by autowired with List ");
+        System.out.println("=======================================");
+        WiredList wbl = (WiredList) fact.getBean("wiredList");
+        System.out.println(wbl.getName());
+        Iterator<ClassWired> x = wbl.getwList().iterator();
+        while(x.hasNext()){
+            System.out.print(x.next().getText() + ", ");
+        }
+
+
 
 
 

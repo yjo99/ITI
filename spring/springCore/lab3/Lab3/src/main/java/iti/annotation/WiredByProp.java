@@ -22,6 +22,12 @@ public class WiredByProp {
     public ClassWired getCw() {
         return cw;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setCw(ClassWired cw) {
+        this.cw = cw;
+    }
    
     
     

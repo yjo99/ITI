@@ -68,12 +68,47 @@
   <!-- //annotation -->
   <context:annotation-config/>
 
-  <bean id="classWired" class="iti.annotation.ClassWired">
+  <bean id="classWired" class="iti.annotation.ClassWired" primary="true">
     <property name="text" value="test Name "></property> 
   </bean>
 
   <bean id="WiredByProp" class="iti.annotation.WiredByProp">
     <constructor-arg  value="test for wired by prop" />
   </bean>
+
+  <!-- // wire by setter -->
+  <bean id="WiredBySetter" class="iti.annotation.WiredBySetter">
+    <!-- <constructor-arg name="name" value=" test for Wired by Setter "></constructor-arg> -->
+    <property name="name" value="test for Wired by Setter"></property>
+  </bean>
+
+
+  <!-- /// wire by constructor -->
+  <bean id="WiredByConstructor" class="iti.annotation.WiredByConst">
+    <constructor-arg name="name" value="test for Wired by Constructor "/>
+  </bean>
+
+
+  <!-- //// AutoWiredList -->
+  <bean id="classWired1" class="iti.annotation.ClassWired" >
+    <property name="text" value="test Name 1 "></property> 
+  </bean>
+  <bean id="classWired2" class="iti.annotation.ClassWired" >
+    <property name="text" value="test Name 2 "></property> 
+  </bean>
+  <bean id="classWired3" class="iti.annotation.ClassWired"  autowire-candidate="false">
+    <property name="text" value="test Name 3 "></property> 
+  </bean>
+  <bean id="classWired4" class="iti.annotation.ClassWired" >
+    <property name="text" value="test Name 4 "></property> 
+  </bean>
+  <bean id="classWired5" class="iti.annotation.ClassWired" >
+    <property name="text" value="test Name 5 "></property> 
+  </bean>
+
+  <bean id="wiredList" class="iti.annotation.WiredList">
+    <property name="name" value="test"></property>
+  </bean>
+
 
 </beans>
