@@ -53,6 +53,8 @@ public class App
         System.out.println("=================");
         User usercom = (User) fact.getBean("userCom");
         System.out.println(usercom.getCourse());
+        Course c1 = (Course) fact.getBean("course1");
+        System.out.println(c1.getName());
         
 
 
@@ -63,6 +65,7 @@ public class App
         System.out.println("=================");
         Wire1 auto = (Wire1) fact.getBean("wire1");
         System.out.println(auto.getW2());
+        System.out.println(auto.getW2copy());
 
 
         System.out.println();

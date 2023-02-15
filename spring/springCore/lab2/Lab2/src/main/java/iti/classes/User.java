@@ -12,7 +12,7 @@ public class User {
     private String name;
     private String idCourse;
     private Course course;
-    private static int count=0;
+    private static int count=-7;
 
 
 

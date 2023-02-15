@@ -13,11 +13,13 @@ public class Wire1 {
 
     private String text;
     private Wire2 w2;
+    private Wire2 w2copy;
 	public Wire1() {
 	}
-	public Wire1( Wire2 w2, String text) {
+	public Wire1( Wire2 w2, Wire2 w2copy, String text) {
 		this.text = text;
 		this.w2 = w2;
+		this.w2copy = w2copy;
 	}
 
 
@@ -40,6 +42,12 @@ public class Wire1 {
 	}
 	public void setW2(Wire2 w2) {
 		this.w2 = w2;
+	}
+	public Wire2 getW2copy() {
+		return w2copy;
+	}
+	public void setW2copy(Wire2 w2copy) {
+		this.w2copy = w2copy;
 	}
 
     

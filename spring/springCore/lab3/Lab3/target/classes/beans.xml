@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd" default-lazy-init="true" default-init-method="init" default-destroy-method="des">
+
+
+  <!-- // inherit -->
+  <bean id="A" abstract="true" class="iti.inheritanceBean.A">
+    <property name="a" value="a is value of Parent A"></property>
+  </bean>
+
+  <bean id="B" parent="A" class="iti.inheritanceBean.B">
+    <!-- <property name="a" value="(a) is value of Child B"></property> -->
+    <property name="b" value="(b) is value of Child B"></property>
+  </bean>
+
+
+
+ 
+
+
+
+  <!-- ////// collection with merge -->
+  <bean id="BList" abstract="true" class="iti.collections.BList">
+    <property name="numbers">
+     
+        <list>
+          <value> 10</value>
+          <value> 11</value>
+          <value> 12</value>
+          <value> 13</value>
+          <value> 14</value>
+          <value> 14</value>
+        </list>
+      
+    </property>
+  </bean>
+
+  <bean id="AList" parent="BList" class="iti.collections.AList" >
+    <property name="text" value="list1"></property>
+    <property name="numbers">
+      <list merge="true">
+        <value>15</value>
+        <value>16</value>
+        <value>17</value>
+        <value>18</value>
+        <value>19</value>
+        <value>20</value>
+      </list>
+    </property>
+  </bean>
+
+
+<!-- /// properties -->
+  <context:property-placeholder location="user.properties"/>
+  <bean id="user" class="iti.properties.User">
+    <property name="name" value="${user.name}"></property>
+    <property name="age" value="${user.age}"></property>
+    <property name="email" value="${user.email}"></property>
+  </bean>
+
+
+
+  <!-- //annotation -->
+  <context:annotation-config/>
+
+  <bean id="classWired" class="iti.annotation.ClassWired">
+    <property name="text" value="test Name "></property> 
+  </bean>
+
+  <bean id="WiredByProp" class="iti.annotation.WiredByProp">
+    <constructor-arg  value="test for wired by prop" />
+  </bean>
+
+</beans>

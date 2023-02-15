@@ -6,7 +6,7 @@
 
 
     <!-- //idref -->
-    <bean id="course1" class="iti.classes.Course">
+    <bean id="course1" class="iti.classes.Course" scope="prototype">
         <property name="name" value="Mathematics" />
         <property name="id" value="406" />
     </bean>
@@ -117,8 +117,8 @@
     <bean id="wire2" class="iti.Autowiring.Wire2">
         <property name="name" value="test1"></property>
     </bean>
-    <bean id="w2" class="iti.Autowiring.Wire2">
-        <property name="name" value="test2"></property>
+    <bean id="w2" class="iti.Autowiring.Wire2" >
+        <property name="name" value="test2"></property> 
     </bean> 
      <bean id="w3" class="iti.Autowiring.Wire2"  primary="true">
         <property name="name" value="test3"></property>
@@ -140,7 +140,7 @@
 
     <!-- /// byConstructor -->
     <bean id="wireByConstructor" class="iti.Autowiring.Wire1" autowire="constructor">
-        <constructor-arg index="1" value="Wiring by constructor"></constructor-arg>
+        <constructor-arg index="2" value="Wiring by constructor"></constructor-arg>
     </bean>
 
 
