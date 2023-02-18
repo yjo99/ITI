@@ -4,6 +4,7 @@ import iti.annotation.*;
 import iti.collections.AList;
 import iti.inheritanceBean.*;
 import iti.properties.User;
+import iti.qualifier.*;
 
 import java.util.*;
 
@@ -82,6 +83,23 @@ public class App
 
 
 
+        System.out.println("=======================================");
+        System.out.println("Qualifier with beans.xml");
+        System.out.println("=======================================");
+        cont con = (cont) fact.getBean("contQualifier");
+        System.out.println(con.getId());
+        System.out.println(con.getBuyer().getName());
+
+
+        System.out.println("=======================================");
+        System.out.println("Recources");
+        System.out.println("=======================================");
+        contRes conRes = (contRes) fact.getBean("contres");
+        System.out.println(conRes.getId());
+        System.out.println(conRes.getBuyer().getName());
+
+
+        fact.close();
 
 
     }

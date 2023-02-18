@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        https://www.springframework.org/schema/context/spring-context.xsd" default-lazy-init="true" default-init-method="init" default-destroy-method="des">
+        https://www.springframework.org/schema/context/spring-context.xsd" default-lazy-init="true" >
 
 
   <!-- // inherit -->
@@ -110,5 +110,35 @@
     <property name="name" value="test"></property>
   </bean>
 
+
+
+
+
+  <!-- /// Qualifire and resources -->
+
+
+  <bean id="buyer" class="iti.qualifier.Buyer">
+    <constructor-arg index="0"  value="Jo"></constructor-arg>
+    <constructor-arg index="1"  value="24"></constructor-arg>
+    <constructor-arg index="2"  value="01142490433"></constructor-arg>
+    <constructor-arg index="3"  value="29906012106775"></constructor-arg>
+  </bean>
+
+  <bean id="seller" class="iti.qualifier.Seller">
+    <constructor-arg index="0"  value="Yousef"></constructor-arg>
+    <constructor-arg index="1"  value="24"></constructor-arg>
+    <constructor-arg index="2"  value="01142490433"></constructor-arg>
+    <constructor-arg index="3"  value="29906012106775"></constructor-arg>
+  </bean>
+
+
+  <bean id="contQualifier" class="iti.qualifier.cont">
+    <constructor-arg index="0" type="int" value="1"></constructor-arg>
+  </bean>
+
+  <!-- // for resource -->
+  <bean id="contres" class="iti.qualifier.contRes">
+    <property name="id" value="2"></property>
+  </bean>
 
 </beans>
