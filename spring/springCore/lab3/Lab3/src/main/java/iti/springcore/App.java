@@ -88,7 +88,8 @@ public class App
         System.out.println("=======================================");
         cont con = (cont) fact.getBean("contQualifier");
         System.out.println(con.getId());
-        System.out.println(con.getBuyer().getName());
+        System.out.println(con.getX().getName());
+        System.out.println(con.getY().getName());
 
 
         System.out.println("=======================================");

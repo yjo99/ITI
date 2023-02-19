@@ -20,6 +20,12 @@ public class Seller extends Person {
     public void setIdSelleing(String idSelleing) {
         this.idSelleing = idSelleing;
     }
+
+    @Override
+    public String getName() {
+        // TODO Auto-generated method stub
+        return super.getName();
+    }
     
     
 }

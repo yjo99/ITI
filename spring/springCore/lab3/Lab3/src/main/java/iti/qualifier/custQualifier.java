@@ -10,12 +10,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public @interface custQualifier {
 
     String name();
-    PersonType type();
+    int id();
     
     
 }
 
 
-enum PersonType{
-    Buyer, Seller
-}
+

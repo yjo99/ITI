@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
+import jakarta.inject.Named;
+import jakarta.annotation.*;
 
 public class cont {
 
@@ -14,19 +15,35 @@ public class cont {
     // @custQualifier(name = "buyer" , type = PersonType.Buyer)
     // @Autowired()
     // @Qualifier("buyer")
-    @Qualifier("seller")
-    private Person x;
+
+    @Autowired
+    private Person seller;
+    @Autowired
+    @Qualifier("buyer")
+    private Person y;
     // if i write name of class it work without @qualifier
+
+
+    
+    public cont(int id, Person x,  Person y) {
+        this.id = id;
+        this.seller = x;
+        this.y = y;
+    }
 
     public cont(){
 
     }
     
-    @Autowired()
+    public cont(int id) {
+        this.id = id;
+    }
+   
+    // @Qualifier
     public cont(int id, Person buyer) {
         this.id = id;
         // this.buyer = buyer;
-        this.x = buyer;
+        this.seller = buyer;
     }
 
     @PostConstruct
@@ -42,17 +59,25 @@ public class cont {
         this.id = id;
     }
 
-    public Person getBuyer() {
-        return x;
+    public Person getX() {
+        return seller;
     }
 
-    public void setBuyer(Person buyer) {
-        this.x = buyer;
+    public void setx(Person person) {
+        this.seller = person;
     }
 
     @PreDestroy
     public void des(){
         System.out.println("destruct");
+    }
+
+    public Person getY() {
+        return y;
+    }
+
+    public void setY(Person y) {
+        this.y = y;
     }
     
 }
