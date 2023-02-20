@@ -8,11 +8,12 @@ import jakarta.annotation.Resource;
 import jakarta.inject.*;
 import org.springframework.beans.factory.annotation.*;
 
-@Service
+@Component("student")
 public class student {
-    @Value("Yousef Sayed Abdelaziz")
+    @Value("${user.name}")
     private String name;
 
+    @Autowired
     private course course;
 
     
@@ -20,7 +21,6 @@ public class student {
         System.out.println("strudent const");
     }
 
-    @Autowired
     public student(  String name, course course) {
         System.out.println("student args const");
         this.name = name;

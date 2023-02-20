@@ -3,7 +3,7 @@ package iti.springcore.study;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-// @Component
+@Component
 public class course {
 
 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd"
+    default-lazy-init="true" default-init-method="init" default-destroy-method="des">
+
+
+    <!-- //idref -->
+    <bean id="course1" class="iti.springcore.beanXML.classes.Course" scope="prototype">
+        <property name="name" value="Mathematics" />
+        <property name="id" value="406" />
+    </bean>
+
+   
+
+    <!-- // Parent -->
+    <bean id="User2" class="iti.springcore.beanXML.classes.User" scope="prototype">
+        <property name="name" value="Yousef Sayed Abdelaziz"></property>
+        <property name="idCourse">
+            <idref bean="course1" />
+        </property>
+        <property name="course">
+            <ref bean="course1"></ref>
+        </property>
+    </bean>
+    <!-- // Parent -->
+    <bean id="User3" class="iti.springcore.beanXML.classes.User">
+        <property name="name" value="Yousef Sayed Abdelaziz"></property>
+        <property name="idCourse">
+            <idref bean="course1" />
+        </property>
+        <property name="course">
+            <ref bean="course1"></ref>
+        </property>
+    </bean>
+    <!-- // Parent -->
+    <bean id="User4" class="iti.springcore.beanXML.classes.User">
+        <property name="name" value="Yousef Sayed Abdelaziz"></property>
+        <property name="idCourse">
+            <idref bean="course1" />
+        </property>
+        <property name="course">
+            <ref bean="course1"></ref>
+        </property>
+    </bean>
+    <!-- // Parent -->
+    <bean id="User5" class="iti.springcore.beanXML.classes.User">
+        <property name="name" value="Yousef Sayed Abdelaziz"></property>
+        <property name="idCourse">
+            <idref bean="course1" />
+        </property>
+        <property name="course">
+            <ref bean="course1"></ref>
+        </property>
+    </bean>
+
+
+   
+
+    <!-- //compount property -->
+    <bean id="userCom" class="iti.springcore.beanXML.classes.User">
+        <property name="name" value="Jo"></property>
+        <property name="idCourse">
+            <idref bean="course1"></idref>
+        </property>
+        <property name="course" ref="course1"></property>
+        <property name="course.name" value="Functional Analysis"></property>
+        <property name="course.id" value="8888888"></property>
+    </bean>
+
+
+   
+
+
+</beans>
