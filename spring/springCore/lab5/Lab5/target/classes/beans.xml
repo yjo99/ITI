@@ -9,7 +9,6 @@
 
 
     <context:component-scan base-package="iti.springcore"  >
-      <context:include-filter type="regex" expression=".*rse" />
     </context:component-scan>
 
 

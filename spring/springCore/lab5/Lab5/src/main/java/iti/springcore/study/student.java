@@ -20,7 +20,7 @@ public class student {
         System.out.println("strudent const");
     }
 
-    
+    @Autowired
     public student(  String name, course course) {
         System.out.println("student args const");
         this.name = name;
@@ -37,7 +37,6 @@ public class student {
         return course;
     }
 
-    @Inject
     public void setCourse(course course) {
         System.out.println("set course from student");
         this.course = course;

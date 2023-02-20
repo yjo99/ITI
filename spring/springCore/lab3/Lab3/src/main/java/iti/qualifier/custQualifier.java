@@ -1,6 +1,7 @@
 package iti.qualifier;
 
 import java.lang.annotation.*;
+import java.util.jar.Attributes.Name;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
