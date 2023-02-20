@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd"   default-lazy-init="true" >
+
+
+    <bean id="calcImp" class="com.springAOP.targets.CalculatorImp"></bean>
+
+    <bean id="before" class="com.springAOP.advices.BeforeAdv"></bean>
+    <bean id="AfterRet" class="com.springAOP.advices.AfterRetAdv"></bean>
+    <bean id="AfterThrow" class="com.springAOP.advices.AfterThrowAdv"></bean>
+    <bean id="Around" class="com.springAOP.advices.Around"></bean>
+
+    <!-- ///create proxy -->
+    <bean id="calcProx" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- we cant write it -->
+        <property name="proxyInterfaces">
+            <list>
+                <value>com.springAOP.interfaces.Calculator</value>
+            </list>
+        </property>
+        <property name="target" ref="calcImp"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>before</value>
+                <value>AfterRet</value>
+                <value>AfterThrow</value>
+                <value>Around</value>
+            </list>
+        </property>
+    </bean> 
+
+</beans>
