@@ -16,11 +16,30 @@ public class App
     {
         ApplicationContext appCon = new ClassPathXmlApplicationContext("beans.xml");
 
-        // CalculatorImp calc = appCon.getBean("calcImp", CalculatorImp.class);
+        // Calculator calc = appCon.getBean("calcProx", Calculator.class);
         // System.out.println(calc.add(5, 3));
 
         // why interface not his implementation
-        Calculator calcProx = appCon.getBean("calcProx", Calculator.class);
-        System.out.println(calcProx.add(5, 3));
+        // Calculator calcProx = appCon.getBean("calcProx", Calculator.class);
+        // System.out.println(calcProx.add(5, 3));
+
+        // System.out.println(calcProx.div(5, 0));
+        
+        
+        
+        Calculator calcAutoProx = appCon.getBean("calcImp", Calculator.class);
+        // System.out.println(calcAutoProx.add(5, 3));
+
+
+        // System.out.println(calcAutoProx.abst(5, 6));
+        try{
+
+            System.out.println(calcAutoProx.div(5, 0));
+        }catch(Exception EX){
+            System.err.println("exxxxxx");
+        }
+
+
+    
     }
 }

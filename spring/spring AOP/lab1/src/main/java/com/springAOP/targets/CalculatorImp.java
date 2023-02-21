@@ -1,5 +1,7 @@
 package com.springAOP.targets;
 
+import java.lang.invoke.TypeDescriptor;
+
 import com.springAOP.interfaces.*;
 
 public class CalculatorImp implements Calculator {
@@ -21,8 +23,10 @@ public class CalculatorImp implements Calculator {
     }
 
     @Override
-    public int div(int x , int y) {
-        return x / y;
+    public int div(int x , int y) throws ArithmeticException {
+        
+            return x / y;
+        
     }
     
 }

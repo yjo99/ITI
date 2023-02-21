@@ -16,8 +16,8 @@
     <bean id="Around" class="com.springAOP.advices.Around"></bean>
 
     <!-- ///create proxy -->
-    <bean id="calcProx" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <!-- we cant write it -->
+    <!-- <bean id="calcProx" class="org.springframework.aop.framework.ProxyFactoryBean">
+        we cant write it
         <property name="proxyInterfaces">
             <list>
                 <value>com.springAOP.interfaces.Calculator</value>
@@ -26,12 +26,108 @@
         <property name="target" ref="calcImp"></property>
         <property name="interceptorNames">
             <list>
-                <value>before</value>
-                <value>AfterRet</value>
-                <value>AfterThrow</value>
                 <value>Around</value>
+                <value>AfterRet</value>
+                <value>before</value>
+                <value>AfterThrow</value>
             </list>
         </property>
-    </bean> 
+    </bean>  -->
+
+
+   
+
+    <!-- //all procy Creator -->
+    <bean id="pointcuts" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedNames" >
+            <list>
+                <value>add</value>
+                <value>multi</value>
+                <value>div</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- //advicor (Aspect) -->
+    <bean id="advicor1" parent="pointcuts" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <!-- <property name="mappedNames" >
+            <list>
+                <value>add</value>
+                <value>multi</value>
+            </list>
+        </property> -->
+        <property name="advice" ref="before"></property>
+    </bean>
+    <bean id="advicor2" parent="pointcuts" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <!-- <property name="mappedNames" >
+            <list>
+                <value>add</value>
+                <value>multi</value>
+            </list>
+        </property> -->
+        <property name="advice" ref="Around"></property>
+    </bean>
+    <bean id="advicor3" parent="pointcuts" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <!-- <property name="mappedNames" >
+            <list>
+                <value>add</value>
+                <value>multi</value>
+            </list>
+        </property> -->
+        <property name="advice" ref="AfterRet"></property>
+    </bean>
+    <bean id="advicor4" parent="pointcuts" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <!-- <property name="mappedNames" >
+            <list>
+                <value>add</value>
+                <value>multi</value>
+            </list>
+        </property> -->
+        <property name="advice" ref="AfterThrow"></property>
+    </bean>
+
+    <bean id="calcAutoProx" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <!-- <property name="target" ref="calcImp"></property> -->
+        <property name="beanNames">
+            <list>
+                <value>calcImp</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <!-- <value>advicor1</value> -->
+                <!-- <value>advicor2</value> -->
+                <!-- <value>advicor3</value> -->
+                <value>advicor4</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- <bean id="calcAutoProx" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="calcImp"></property>
+        <property name="interceptorNames">
+            <list>
+                <value>advicor1</value>
+                <value>advicor2</value>
+                <value>advicor3</value>
+            </list>
+        </property>
+    </bean> -->
+
+    <!-- <bean id="Calcs" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>
+                    calcImp
+                </value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>methodNames</value>
+            </list>
+        </property>
+    </bean> -->
 
 </beans>
