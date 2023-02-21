@@ -36,7 +36,7 @@ public class App
 
             System.out.println(calcAutoProx.div(5, 0));
         }catch(Exception EX){
-            System.err.println("exxxxxx");
+            System.err.println("Error Handling");
         }
 
 

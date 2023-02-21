@@ -16,8 +16,8 @@
     <bean id="Around" class="com.springAOP.advices.Around"></bean>
 
     <!-- ///create proxy -->
-    <!-- <bean id="calcProx" class="org.springframework.aop.framework.ProxyFactoryBean">
-        we cant write it
+    <bean id="calcProx" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- we cant write it -->
         <property name="proxyInterfaces">
             <list>
                 <value>com.springAOP.interfaces.Calculator</value>
@@ -32,7 +32,7 @@
                 <value>AfterThrow</value>
             </list>
         </property>
-    </bean>  -->
+    </bean> 
 
 
    
@@ -96,9 +96,9 @@
         </property>
         <property name="interceptorNames">
             <list>
-                <!-- <value>advicor1</value> -->
-                <!-- <value>advicor2</value> -->
-                <!-- <value>advicor3</value> -->
+                <value>advicor1</value>
+                <value>advicor2</value>
+                <value>advicor3</value>
                 <value>advicor4</value>
             </list>
         </property>
