@@ -16,8 +16,8 @@ public class App
     {
         ApplicationContext appCon = new ClassPathXmlApplicationContext("beans.xml");
 
-        // Calculator calc = appCon.getBean("calcProx", Calculator.class);
-        // System.out.println(calc.add(5, 3));
+        Calculator calc = appCon.getBean("calcProx", Calculator.class);
+        System.out.println(calc.add(5, 3));
 
         // why interface not his implementation
         // Calculator calcProx = appCon.getBean("calcProx", Calculator.class);
