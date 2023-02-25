@@ -19,8 +19,11 @@ public class CalculatorAdvices1 {
      @Pointcut("execution(* com.springAOP.impl.CalculatorImp.subt(..))")
      public void pointCutAbst(){}
 
+     @Pointcut("execution(* com.springAOP.introduction.PersonImp.getAge(..))")
+     public void PersonAge(){}
+
       //pointCut
-    @Pointcut("pointCutAdd() || pointCutAbst()")
+    @Pointcut("pointCutAdd() || pointCutAbst() || PersonAge()")
     public void pointCut(){}
 
     @Before("pointCutAdd()")

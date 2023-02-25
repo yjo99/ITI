@@ -21,26 +21,27 @@ public class App
         Calculator calc = (Calculator) con.getBean("calcImp");
         // Calculator calc = (Calculator) con.getBean("calculatorImp");
 
-        System.out.println(calc.add(5,10));
-        System.out.println(calc.div(5,10));
+        // System.out.println(calc.add(5,10));
+        // System.out.println(calc.div(5,10));
 
 
-        System.out.println("============Abstract===========");
-        System.out.println(calc.subt(2,3));
+        // System.out.println("============Abstract===========");
+        // System.out.println(calc.subt(2,3));
 
 
         //person
         person prson = (person) calc;
         
-        System.out.println(prson.getName());
+        // System.out.println(prson.getName());
+        System.out.println(prson.getAge());
 
-        ///
-        System.out.println("====================");
-        System.out.println("====================");
-        System.out.println("====================");
-        //cars
-        cars car = (cars) prson;
-        System.out.println(car.getCarModel());
+        // ///
+        // System.out.println("====================");
+        // System.out.println("====================");
+        // System.out.println("====================");
+        // //cars
+        // cars car = (cars) prson;
+        // System.out.println(car.getCarModel());
 
         
 

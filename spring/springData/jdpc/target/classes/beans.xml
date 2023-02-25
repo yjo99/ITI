@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd"
+    default-lazy-init="true">
+
+
+    <context:component-scan base-package="com.springData.Confugrations" />
+
+    <context:property-placeholder location="classpath:Connection.properties" />
+
+    <!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">
+        <property name="driverClassName" value="${Connection.driver}" />
+        <property name="url" value="${Connection.url}" />
+        <property name="username" value="${Connection.userName}" />
+        <property name="password" value="${Connection.password}" />
+    </bean> -->
+
+
+</beans>
