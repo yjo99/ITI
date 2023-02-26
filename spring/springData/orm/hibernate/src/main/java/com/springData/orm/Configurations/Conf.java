@@ -4,11 +4,9 @@ package com.springData.orm.Configurations;
 import com.springData.orm.DAO.WorkorderDAOImp;
 import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.*;
 
@@ -21,6 +19,7 @@ import org.springframework.orm.hibernate5.*;
 @Configuration
 @ComponentScan(basePackages = "com.springData.orm")
 @PropertySource("classpath:Connection.properties")
+@ImportResource("beans.xml")
 public class Conf {
 
 
@@ -57,6 +56,7 @@ public class Conf {
     }
 
     @Bean
+    @Qualifier("transactionManager")
     public HibernateTransactionManager getHTManager(){
         HibernateTransactionManager htManager = new HibernateTransactionManager();
         htManager.setSessionFactory( getLsfb().getObject());
@@ -73,11 +73,8 @@ public class Conf {
 
     @Bean
     public WorkorderDAOImp getWorkorderDAO(){
-        return new WorkorderDAOImp(getHTemplate(),getTT());
+        return new WorkorderDAOImp(getHTemplate());
     }
 
-    @Bean
-    public TransactionTemplate getTT(){
-        return new TransactionTemplate(getHTManager());
-    }
+
 }

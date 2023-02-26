@@ -21,9 +21,11 @@ public class App
     {
         AnnotationConfigApplicationContext conf = new AnnotationConfigApplicationContext();
         conf.register(Conf.class);
+
         conf.refresh();
 
 
+        conf.getBean("getHTManager");
         WorkOrderDAO w1 = (WorkOrderDAO) conf.getBean("getWorkorderDAO");
 //        Workorder workorder = w1.findByTagNo("000737");
 //        System.out.println("pn = "+ workorder.getPn());
@@ -45,7 +47,5 @@ public class App
             }
             System.out.println("Workorder , pn = " + w.getPn() + " name = " + w.getName());
         }
-
-
     }
 }
