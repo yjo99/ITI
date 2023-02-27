@@ -1,0 +1,12 @@
+com\springData\orm\Entites\Typeofservices.class
+com\springData\orm\Entites\Capabilitylist.class
+com\springData\orm\Entites\Owner.class
+com\springData\orm\Entites\Aircrafttype.class
+com\springData\orm\App.class
+com\springData\orm\Interfaces\WorkOrderDAO.class
+com\springData\orm\Entites\Aircraftmodel.class
+com\springData\orm\Entites\Workorder.class
+com\springData\orm\Entites\Actionreq.class
+com\springData\orm\Entites\Workorderplace.class
+com\springData\orm\Entites\PartsWorkshop.class
+com\springData\orm\DAO\WorkorderDAOImp.class
