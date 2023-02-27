@@ -63,30 +63,31 @@ public class conf {
 
 
     //local container entity manager factory bean
-    @Bean
-    @Qualifier("entityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean getEnitiyFactory(){
-        LocalContainerEntityManagerFactoryBean ent = new LocalContainerEntityManagerFactoryBean();
-        ent.setDataSource(getDataSource());
-
-        ent.setPersistenceProvider(getp());
-        ent.setPackagesToScan("com.springData.orm.Entities");
-
-        // Properties
-        Properties jpaProp = new Properties();
-
-        jpaProp.put("hibernate.hbm2ddl.auto", hbm2ddl);
-        jpaProp.put("hibernate.show_sql",showSql);
-        jpaProp.put("hibernate.format_sql",fromatSql);
-
-        ent.setJpaProperties(jpaProp);
-
-        return ent;
-    }
+//    @Bean
+////    @Qualifier("entityManagerFactory")
+//    public LocalContainerEntityManagerFactoryBean getEnitiyFactory(){
+//        LocalContainerEntityManagerFactoryBean ent = new LocalContainerEntityManagerFactoryBean();
+//        ent.setDataSource(getDataSource());
+//
+//        ent.setPersistenceProvider(getp());
+//        ent.setPackagesToScan("com.springData.orm.Entities");
+//
+//        // Properties
+//        Properties jpaProp = new Properties();
+//
+//        jpaProp.put("hibernate.hbm2ddl.auto", hbm2ddl);
+//        jpaProp.put("hibernate.show_sql",showSql);
+//        jpaProp.put("hibernate.format_sql",fromatSql);
+//
+//        ent.setJpaProperties(jpaProp);
+//
+//        return ent;
+//    }
 
 
     //dao imp
     @Bean
+    @Lazy
     public WorkorderDAOImp getWorkorderDao(EntityManagerFactory emf){
         WorkorderDAOImp workorderDao =  new WorkorderDAOImp();
         workorderDao.setEntityManager(emf);

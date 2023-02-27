@@ -19,6 +19,41 @@
 
     <context:property-placeholder location="classpath:Connection.properties" />
 
+    <context:annotation-config />
+
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"></property>
+    </bean>
+
+
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${Connection.driver}" />
+        <property name="url" value="${Connection.url}" />
+        <property name="username" value="root" />
+        <property name="password" value="${Connection.password}" />
+    </bean>
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="datasource" />
+        <property name="packagesToScan" value="com.springData.orm.Entites" />
+        <property name="persistenceProvider">
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider"></bean>
+        </property>
+<!--        <property name="jpaProperties">-->
+<!--            <props>-->
+<!--                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+<!--                <prop key="hibernate.show_sql">true</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+    </bean>
+
+
+
+    <bean id="wDAO" class="com.springData.orm.DAO.WorkorderDAOImp">
+<!--    <property name="entityManager" ref="entityManagerFactory"/>-->
+    </bean>
 
 
 

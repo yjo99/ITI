@@ -7,6 +7,7 @@ import com.springData.orm.Interfaces.WorkOrderDAO;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -16,7 +17,8 @@ import java.util.List;
 public class WorkorderDAOImp implements WorkOrderDAO {
 
 //    @Autowired
-    EntityManager entityManager;
+    @PersistenceContext
+    public EntityManager entityManager;
 
 
     public void setEntityManager(EntityManagerFactory entityManagerFactory) {
@@ -24,20 +26,20 @@ public class WorkorderDAOImp implements WorkOrderDAO {
     }
 
     @Override
-
     public Workorder findByTagNo(String tagNo) {
-        return null;
+        return entityManager.find(Workorder.class, tagNo);
     }
 
     @Override
     public List<Workorder> findAllWorkorder() {
-        return null;
+        String q = "select w from Workorder w ";
+        return entityManager.createQuery(q).getResultList();
     }
 
     @Override
     @Transactional
     public void deletedWorkorder(Workorder w) {
-
+        entityManager.remove(w);
         System.out.println("Deleted Successfully");
 
     }
@@ -45,9 +47,7 @@ public class WorkorderDAOImp implements WorkOrderDAO {
     @Override
     @Transactional
     public void updateWorkorder(Workorder w) {
-
-
-
+        entityManager.merge(w);
         System.out.println("Updated Successfully");
     }
 
@@ -55,16 +55,14 @@ public class WorkorderDAOImp implements WorkOrderDAO {
     @Transactional
     public void addWorkorder(Workorder w) {
 
-
-                System.out.println("Added Successfully");
+        entityManager.persist(w);
+        System.out.println("Added Successfully");
 
     }
 
 
-
     public int CountWorkorderBlocked() {
         String sql = "select count(w) from Workorder w where w.ordStatus = :t1 ";
-
         return 5;
     }
 }
