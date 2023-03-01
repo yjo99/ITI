@@ -39,7 +39,9 @@ public class WorkorderDAOImp implements WorkOrderDAO {
     @Override
     @Transactional
     public void deletedWorkorder(Workorder w) {
-        entityManager.remove(w);
+        System.out.println(entityManager.contains(w));
+        // entityManager.contains( w ? w: entityManager.merge(w));
+        entityManager.remove(entityManager.contains( w) ? w: entityManager.merge(w));
         System.out.println("Deleted Successfully");
 
     }

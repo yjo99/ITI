@@ -38,6 +38,9 @@ public class App
         Workorder ord2 = w.findByTagNo("000684");
         System.out.println(ord2.getName());
 
+        // w.entityManager.merge(ord2);
+        w.deletedWorkorder(ord2);
+
 
 
 
